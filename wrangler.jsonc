@@ -1,0 +1,16 @@
+// Cloudflare Workers settings for the Stolway Analytics website (static files only, no Worker code).
+// Cloudflare reads this on every push and publishes the "site" folder.
+{
+  // Must match the project name shown in the Cloudflare dashboard
+  "name": "stolway-analytics-website",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./site",
+    // /about is answered by about.html, and /about.html redirects to /about
+    "html_handling": "auto-trailing-slash",
+    // unknown addresses show site/404.html
+    "not_found_handling": "404-page"
+  },
+  // Needed so Cloudflare can build a private preview link for branches other than main
+  "previews": {}
+}
