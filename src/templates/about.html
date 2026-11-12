@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% from "macros.html" import pic, head with context %}
+{% block main %}
+{% include "banner.html" %}
+<section class="section">
+  <div class="wrap">
+    <div class="intro-grid">
+      <p class="lead">{{ about.summary }}</p>
+      <div class="stack">
+        <p>{{ about.expertise }}</p>
+        <p>Stolway Analytics is part of the Stolway group, which has designed and built custom climate control systems for Zone 1 hazardous areas since 1993. Our analysers and sampling systems carry the same focus on hazardous area certification, with IECEx certified Ex p and Ex d designs.</p>
+        <p>We provide sales, service and manufacturing from our offices in Abu Dhabi and Wollongong.</p>
+      </div>
+    </div>
+    <div class="card-grid" style="margin-top:clamp(40px,6vw,64px)">
+      {% for t in about.pillars %}<div><h3>{{ t[0] }}</h3><p>{{ t[1] }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark" aria-labelledby="mv-title">
+  <div class="wrap">
+    <div class="center-head center-head--dark">
+      <p class="pill">Mission &amp; Vision</p>
+      <h2 id="mv-title">Where We <span class="accent">Are Going</span></h2>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card"><p class="eyebrow">Our mission</p><p class="mv-text">{{ about.mission }}</p></div>
+      <div class="mv-card"><p class="eyebrow">Our vision</p><p class="mv-text">{{ about.vision }}</p>
+        <ul class="ticks">{% for x in about.vision_points %}<li>{{ x }}</li>{% endfor %}</ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="values-title">
+  <div class="wrap">
+    {{ head('values-title', 'Our Values', 'What Guides', 'Our Work') }}
+    <ul class="value-row">{% for v in about["values"] %}<li><span aria-hidden="true">{{ '%02d' % loop.index }}</span>{{ v }}</li>{% endfor %}</ul>
+  </div>
+</section>
+
+<section class="section section--grey" aria-labelledby="approach-title">
+  <div class="wrap">
+    {{ head('approach-title', 'Our Approach', 'Understanding Your Needs,', 'Providing Tailored Solutions') }}
+    <ol class="step-grid step-grid--two">
+      {% for s in about.approach %}<li><span class="step-num" aria-hidden="true">{{ '%02d' % loop.index }}</span><h3>{{ s[0] }}</h3><p>{{ s[1] }}</p></li>{% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="ops-title">
+  <div class="wrap">
+    {{ head('ops-title', 'Our Locations', 'Sales, Service', '& Manufacturing', 'In the United Arab Emirates and Australia.') }}
+    <div class="split globe-split">
+      <div class="locations">
+        {% for o in offices %}
+        <div data-globe-card tabindex="0" role="button" aria-label="Show {{ o.city }} on the globe"><span class="role">{{ o.role }}</span><h3>{{ o.city }}</h3><address>{{ o.entity }}<br>{{ o.lines|join('<br>')|safe }}</address></div>
+        {% endfor %}
+      </div>
+      <div class="globe" data-globe="{{ globe }}">
+        <canvas role="img" aria-label="Globe showing our locations: {% for o in offices %}{{ o.city }}{% if not loop.last %}, {% endif %}{% endfor %}"></canvas>
+        <span class="globe-label" aria-hidden="true"><span class="globe-tip"><strong></strong><em></em></span></span>
+        <p class="globe-hint">Drag to turn, or select a location</p>
+      </div>
+    </div>
+    <div style="margin-top:clamp(40px,6vw,64px)">{% set sister_title = "Climate control from the same group" %}{% include "sister.html" %}</div>
+  </div>
+</section>
+{% include "cta.html" %}
+<script src="{{ root }}assets/js/globe.js?v={{ site.version }}" defer></script>
+{% endblock %}

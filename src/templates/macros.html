@@ -1,0 +1,38 @@
+{% macro pic(name, alt, sizes="(max-width: 860px) 100vw, 50vw", lazy=true, high=false, cls="") -%}
+{%- set im = IMAGES[name] -%}{%- set w = im.widths[-1] if im.widths[-1] <= 800 else 800 -%}
+<img src="{{ root }}assets/img/{{ name }}-{{ w }}.webp"{% if im.widths|length > 1 %} srcset="{% for x in im.widths %}{{ root }}assets/img/{{ name }}-{{ x }}.webp {{ x }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="{{ sizes }}"{% endif %} alt="{{ alt }}" width="{{ w }}" height="{{ (w * im.ratio)|round|int }}"{% if lazy %} loading="lazy" decoding="async"{% endif %}{% if high %} fetchpriority="high"{% endif %}{% if cls %} class="{{ cls }}"{% endif %}>
+{%- endmacro %}
+
+{% macro head(id, pill, title, accent, sub="") -%}
+<div class="center-head">
+  <p class="pill">{{ pill }}</p>
+  <h2 id="{{ id }}">{{ title }} <span class="accent">{{ accent }}</span></h2>
+  {% if sub %}<p>{{ sub }}</p>{% endif %}
+</div>
+{%- endmacro %}
+
+{% macro card(p) -%}
+<a class="product-card{% if p.tbd %} product-card--tbd{% endif %}" href="{{ root }}products/{{ p.slug }}.html">
+  <div class="media">{{ pic(p.images[0].file, p.images[0].alt, '(max-width: 600px) 100vw, (max-width: 960px) 50vw, 380px') }}</div>
+  <div class="body">
+    {% if p.tbd %}<span class="chip chip--tbd">Details TBD</span>{% elif p.badge %}<span class="chip">{{ p.badge }}</span>{% else %}<span class="chip chip--plain">{{ p.group_name }}</span>{% endif %}
+    <h3>{{ p.name }}</h3>
+    <p>{{ p.card }}</p>
+    <span class="text-link">View product</span>
+  </div>
+</a>
+{%- endmacro %}
+
+{% macro tech_tiles(tech) -%}
+<ol class="tech-grid">
+  {% for t in tech %}
+  <li class="tech-tile">
+    <span class="tech-num" aria-hidden="true">{{ '%02d' % loop.index }}</span>
+    <h3>{{ t.name }}</h3>
+    <p class="tech-long">{{ t.long }}</p>
+    <p>{{ t.text }}</p>
+    <a class="text-link" href="{{ root }}products/{{ t.p.slug }}.html">{{ t.p.short }}</a>
+  </li>
+  {% endfor %}
+</ol>
+{%- endmacro %}

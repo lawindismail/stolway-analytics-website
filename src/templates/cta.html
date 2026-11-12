@@ -1,0 +1,9 @@
+<section class="cta-band" aria-labelledby="cta-title">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 id="cta-title">{{ cta_title or "Have an application in mind? Let's talk." }}</h2>
+      <p>{{ cta_text or "Tell us what you need to measure and where, and one of our team will get back to you." }}</p>
+    </div>
+    <a class="btn btn--light" href="{{ root }}contact.html{{ cta_query or '?type=quote' }}">{{ cta_button or "Contact Us" }}</a>
+  </div>
+</section>

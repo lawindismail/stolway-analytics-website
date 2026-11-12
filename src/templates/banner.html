@@ -1,0 +1,9 @@
+{% set parts = page.h1.split('|') %}
+<section class="banner banner--plain" aria-labelledby="page-title">
+  <div class="banner-media" aria-hidden="true">{% include "spectrum.svg" %}</div>
+  <div class="wrap banner-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="{{ root }}index.html">Home</a></li>{% for c in page.crumbs %}<li>{% if c.href %}<a href="{{ root }}{{ c.href }}">{{ c.label }}</a>{% else %}<span aria-current="page">{{ c.label }}</span>{% endif %}</li>{% endfor %}</ol></nav>
+    <h1 id="page-title" class="banner-title">{{ parts[0] }}{% if parts|length > 1 %}<span class="slide-accent">{{ parts[1] }}</span>{% endif %}</h1>
+    {% if page.intro %}<p>{{ page.intro }}</p>{% endif %}
+  </div>
+</section>

@@ -1,0 +1,1605 @@
+[
+ {
+  "slug": "smart-sampling-system",
+  "old_slug": "smart-sampling-system-sss",
+  "name": "Smart Sampling System (SSS)",
+  "short": "Smart Sampling System",
+  "code": "SSS",
+  "menu": "Heated CEMS stack sampling",
+  "group": "emissions",
+  "featured": true,
+  "summary": "Solves persistent plugging problems in CEMS applications by continuously delivering stack sample gas to any CEMS analyser, including severe-service applications in hazardous area locations.",
+  "badge": "IECEx Zone 2",
+  "key": [
+   [
+    "Heated sample line",
+    "200 °C (392 °F)"
+   ],
+   [
+    "Filtration",
+    "2-micron 316 SS mesh"
+   ],
+   [
+    "HMI",
+    "12\" SSC / 7\" SSP touchscreen"
+   ],
+   [
+    "Protection",
+    "NEMA 4X / IP66"
+   ]
+  ],
+  "intro": [
+   "The SSS provides a solution to the persistent plugging problems that plague the CEMS application. The SSS is an innovative design to continuously deliver stack sample gas to any CEMS analysers and for use in severe service applications in Hazardous Area Locations. The integrated heating and blowback system extremely reduces the requirement for maintenance and provides reliable operation.",
+   "The Smart Sampling System (SSS) includes a specific PLC Controller with two HMI (12\" at SSC & 7\" at SSP) to monitor the entire SSS system, allow manual and remote changes to all essential system parameters & initiation of functions. The 7\" HMI at the Smart Sample Probe (SSP) helps the operator diagnose the SSS system while at heights.",
+   "The SSS Controller (SSC) integrates accurate temperature management of its Smart Sample Probe (SSP) heated components, Sample Line as well as configurable sample system blowback functions to clean its Heated Sample Probe, Heated Sample Filter, and Heated Sample Line Tube using instrument air blowback operations."
+  ],
+  "principle": [],
+  "features": [
+   "Can be integrated with any CEMS Analyser.",
+   "Modular design incorporating user programmable features for all sampling, auto blowback, and auto validation sequences.",
+   "Optional stack flow & temperature measurement for Mass Emission Monitoring.",
+   "Dual HMI at the SSS Probe (SSP) and SSS Controller (SSC).",
+   "User friendly HMI graphics, with live and history trends of all temperature zones, blowback pulses, validation pulses & CEMS Analyser readings.",
+   "Probe Tip Calibration for determining overall system health.",
+   "Reduce maintenance, boost sampling reliability, and increase operational uptime of the CEMS Analyser."
+  ],
+  "applications": [
+   "CEMS Stack Gas",
+   "Mass Emission Monitoring"
+  ],
+  "industries": [
+   "Oil & Gas Refinery",
+   "Petrochemicals",
+   "Power Plant"
+  ],
+  "components": [
+   "Smart Sampling Controller (SSC)",
+   "Smart Sampling Probe (SSP)"
+  ],
+  "specs": [
+   [
+    "Physical dimensions (HxWxD)",
+    [
+     "SSC – 24\" x 24\" x 12\", SSP – 24\" x 29.2\" x 14\""
+    ]
+   ],
+   [
+    "Weight",
+    [
+     "SSC – 25 kg (55 lb), SSP – 40 kg (90 lb)"
+    ]
+   ],
+   [
+    "Approvals and certifications",
+    [
+     "SSC: Ex pzc IIC T4 Gc (0 °C < Ta < 52 °C) – SSP: Ex pzc IIC T3 Gc (−10 °C < Ta < 60 °C)",
+     "IEC 60079-0:2017 & IEC 60079-2:2014"
+    ]
+   ],
+   [
+    "Max. ambient temperature",
+    [
+     "SSC: 0 °C to 52 °C; SSP: −10 °C to 60 °C"
+    ]
+   ],
+   [
+    "Degree of protection",
+    [
+     "NEMA 4X / IP66"
+    ]
+   ],
+   [
+    "Sample pressure max",
+    [
+     "6 bar abs"
+    ]
+   ],
+   [
+    "Filter element, porosity",
+    [
+     "316 SS mesh, 2 microns"
+    ]
+   ],
+   [
+    "Mounting flange",
+    [
+     "Any ANSI ≥ 2\", 150# / 300# or any DN / PN"
+    ]
+   ],
+   [
+    "Heated sample line temperature",
+    [
+     "200 °C (392 °F)"
+    ]
+   ],
+   [
+    "Power requirement",
+    [
+     "85–264 VAC, 47 to 63 Hz, <20 A"
+    ]
+   ],
+   [
+    "Sample line power (option)",
+    [
+     "200 VAC to 240 VAC, 47 to 63 Hz, 20 W/ft"
+    ]
+   ],
+   [
+    "Instrument air or N2 consumption",
+    [
+     "SSC & SSP pressurisation: <2.0 SCFM @ 50 to 125 PSIG"
+    ]
+   ],
+   [
+    "Typical calibration gas flow",
+    [
+     "10 to 15 SCFH @ 15 to 40 PSIG (Application dependent)"
+    ]
+   ],
+   [
+    "Typical sample gas flow",
+    [
+     "Gas: 2.5 L/min (5 SCFH) per analyser"
+    ]
+   ],
+   [
+    "Communication interface",
+    [
+     "MODBUS over Ethernet TCP/IP; RS-232; RS-485"
+    ]
+   ],
+   [
+    "Analog & digital outputs",
+    [
+     "User configurable (4–20 mA & 0–24 V Relay)"
+    ]
+   ],
+   [
+    "Analog & digital inputs",
+    [
+     "User configurable (4–20 mA & 0–24 V Relay)"
+    ]
+   ],
+   [
+    "Materials of construction",
+    [
+     "The SSC and SSP enclosures are SS 316, standard wetted sample probe components are SS 316"
+    ]
+   ]
+  ],
+  "hazard": [
+   "Hazardous-area rated for severe service – IECEx Zone 2",
+   "SSC: Ex pzc IIC T4 Gc (0 °C < Ta < 52 °C)",
+   "SSP: Ex pzc IIC T3 Gc (−10 °C < Ta < 60 °C)",
+   "IEC 60079-0:2017 & IEC 60079-2:2014",
+   "NEMA 4X / IP66"
+  ],
+  "certs": [
+   {
+    "number": "IECEx KLCS 23.0001X",
+    "scope": "ST-SSS-SSP, ST-SSS-SSC and ST-SSS-TG (Stolway Manufacturing, Abu Dhabi)",
+    "url": "https://www.iecex-certs.com/#/deliverables/CERT/1621361/view"
+   },
+   {
+    "number": "IECEx KLCS 22.0020X",
+    "scope": "Smart Sampling System – SSP (Stolway Pty Ltd)",
+    "url": "https://www.iecex-certs.com/#/deliverables/CERT/1579815/view"
+   },
+   {
+    "number": "IECEx KLCS 22.0021X",
+    "scope": "Smart Sampling System – SSC (Stolway Pty Ltd)",
+    "url": "https://www.iecex-certs.com/#/deliverables/CERT/1581497/view"
+   },
+   {
+    "number": "IECEx KLCS 22.0022X",
+    "scope": "Smart Sampling System – SSC-TG (Stolway Pty Ltd)",
+    "url": "https://www.iecex-certs.com/#/deliverables/CERT/1581634/view"
+   }
+  ],
+  "images": [
+   {
+    "file": "sss-probe",
+    "alt": "Smart Sampling Probe (SSP) with heated probe"
+   },
+   {
+    "file": "sss-controller",
+    "alt": "Smart Sampling Controller (SSC) with 12-inch HMI"
+   },
+   {
+    "file": "sss-internal",
+    "alt": "Smart Sampling Probe internal layout"
+   },
+   {
+    "file": "sss-hmi",
+    "alt": "Smart Sampling Probe local 7-inch HMI"
+   }
+  ],
+  "diagram": {
+   "file": "sss-diagram",
+   "caption": "Typical block diagram of a CEMS stack application with the Smart Sampling System (SSS)."
+  },
+  "tbd": false,
+  "pending": ""
+ },
+ {
+  "slug": "st-line-laser",
+  "old_slug": "st-line-laser-stll",
+  "name": "ST Line Laser H₂O / H₂S / SO₂ Analyser",
+  "short": "ST Line Laser",
+  "code": "STLL",
+  "menu": "ppb-level H₂O, H₂S and SO₂",
+  "group": "process",
+  "featured": true,
+  "summary": "Line laser analysers using OF-CEAS spectroscopy for ppb-level H₂O, H₂S and SO₂ measurement in process gas, in Ex p and Ex d versions for hazardous areas.",
+  "badge": "IECEx Zone 1/2",
+  "key": [
+   [
+    "Detection principle",
+    "OF-CEAS"
+   ],
+   [
+    "Limit of detection",
+    "2 ppb to 100 ppm"
+   ],
+   [
+    "Response time",
+    "< 10 s"
+   ],
+   [
+    "Hazardous area",
+    "Ex p and Ex d versions"
+   ]
+  ],
+  "intro": [
+   "The Stolway Line Laser analysers pump process samples at low pressure through tubing into an optical measurement cell. A vacuum pump guarantees a steady flow while maintaining low pressure, which improves speed and precision.",
+   "Inside the cavity the gas interacts with a laser beam and absorbs specific wavelengths; this absorbance is measured to determine the composition. The continuous-flow technology eliminates residue build-up, giving real-time, representative analysis with little delay or interference."
+  ],
+  "principle": [
+   {
+    "title": "Gas sampling",
+    "text": "Process gas is drawn under controlled vacuum through the resonant optical cell, with dwell times optimised to under 100 ms, eliminating memory effects."
+   },
+   {
+    "title": "Laser locking",
+    "text": "A frequency-stabilised IR laser couples with a high-finesse optical cavity via optical feedback."
+   },
+   {
+    "title": "Enhanced absorption",
+    "text": "Multi-pass light–gas interaction in the cavity dramatically increases the effective path length."
+   },
+   {
+    "title": "Quantitative analysis",
+    "text": "Target gases absorb specific wavelengths; the absorption spectra are fitted to reference databases for precise concentration."
+   }
+  ],
+  "features": [
+   "OF-CEAS (Optical Feedback Cavity-Enhanced Absorption Spectroscopy) for ppb-level detection with molecular specificity.",
+   "Eliminates cross-interference, even in complex gas matrices.",
+   "Low-pressure sampling (LPS) minimises interference and improves response time; prevents adsorption losses, condensation and flow hysteresis.",
+   "Fast response enables closed-loop control for emissions, combustion and scrubber optimisation.",
+   "Solid-state laser and optical design with no consumables such as electrochemical cells or drying cartridges.",
+   "Auto-referencing calibration reduces drift and downtime.",
+   "IECEx-certified options for hazardous (Zone 1/2) areas.",
+   "Ethernet, Modbus and RS485 interfaces for simple connection to control systems."
+  ],
+  "applications": [
+   "Natural gas processing",
+   "Sour gas treatment",
+   "Natural gas quality control",
+   "Dryers",
+   "Refineries & chemical plants",
+   "Wastewater treatment",
+   "Confined space monitoring"
+  ],
+  "industries": [
+   "Oil & Gas",
+   "Refineries & Chemical Plants",
+   "Industrial Safety & Occupational Health"
+  ],
+  "components": [
+   "ST Line Laser Ex p",
+   "ST Line Laser Ex d",
+   "ST Line Laser (H₂O) with validation system"
+  ],
+  "specs": [
+   [
+    "Physical dimensions (HxWxD)",
+    [
+     "807 x 600 x 350 mm (Ex p), 720 x 560 x 350 mm (Ex d)"
+    ]
+   ],
+   [
+    "Weight",
+    [
+     "70 kg approx. (Ex p), 100 kg approx. (Ex d)"
+    ]
+   ],
+   [
+    "Approvals and certifications",
+    [
+     "Ex p: Ex pxb IIC T4 Gb (−20 °C ≤ Ta ≤ +60 °C)",
+     "Ex d: Ex db IIB+H2 T6 Gb (−20 °C ≤ Ta ≤ +50 °C), Ex db IIB+H2 T5 Gb (−20 °C ≤ Ta ≤ +60 °C)"
+    ]
+   ],
+   [
+    "Max. ambient temperature",
+    [
+     "−20 to 60 °C"
+    ]
+   ],
+   [
+    "Ambient humidity",
+    [
+     "10–90% RH, non-condensing"
+    ]
+   ],
+   [
+    "Degree of protection",
+    [
+     "IP65 stainless steel 316L housing (Ex p), IP66 (Ex d)"
+    ]
+   ],
+   [
+    "Measured gases",
+    [
+     "H₂S, H₂O"
+    ]
+   ],
+   [
+    "Typical measurement ranges",
+    [
+     "H₂S: 0–1 ppm / 0–5000 ppm",
+     "H₂O: 0–1 ppm / 0–100 ppm",
+     "SO₂: 0–2000 ppm"
+    ]
+   ],
+   [
+    "Linearity",
+    [
+     "< 1% range, R² > 0.999"
+    ]
+   ],
+   [
+    "Repeatability",
+    [
+     "3 × LOD or ±0.5% relative"
+    ]
+   ],
+   [
+    "Limit of detection (LOD)",
+    [
+     "Min. 2 ppb to max. 100 ppm"
+    ]
+   ],
+   [
+    "Response time",
+    [
+     "< 10 s"
+    ]
+   ],
+   [
+    "Drift zero/span",
+    [
+     "Negligible (self-calibrating, no span gases required)"
+    ]
+   ],
+   [
+    "Power requirement",
+    [
+     "110–230 VAC, 50/60 Hz, 200–300 W"
+    ]
+   ],
+   [
+    "Communication and data output",
+    [
+     "Ethernet, Modbus (TCP/IP, RS485, RS232), analog I/O, digital I/O"
+    ]
+   ],
+   [
+    "Sample inlet pressure",
+    [
+     "1 atm ± 10 mbar at sampling point"
+    ]
+   ],
+   [
+    "Sample flow rate",
+    [
+     "50 to 500 cc/min"
+    ]
+   ]
+  ],
+  "hazard": [
+   "IECEx-certified options for hazardous (Zone 1/2) areas",
+   "Ex p: Ex pxb IIC T4 Gb (−20 °C ≤ Ta ≤ +60 °C)",
+   "Ex d: Ex db IIB+H2 T6 Gb (−20 °C ≤ Ta ≤ +50 °C), Ex db IIB+H2 T5 Gb (−20 °C ≤ Ta ≤ +60 °C)",
+   "IP65 stainless steel 316L housing (Ex p), IP66 (Ex d)"
+  ],
+  "certs": [
+   {
+    "number": "IECEx KLCS 24.0057X",
+    "scope": "ST Line Laser Process Analyzer STLL-X-Y – pressurised enclosure \"p\" (Issue 1)",
+    "url": "https://www.iecex-certs.com/#/deliverables/CERT/1981940/view"
+   },
+   {
+    "number": "IECEx KLCS 24.0066X",
+    "scope": "Flameproof Process Analyser, Model ST Line Laser – flameproof enclosure \"d\"",
+    "url": "https://www.iecex-certs.com/#/deliverables/CERT/1831263/view"
+   }
+  ],
+  "images": [
+   {
+    "file": "stll-exp",
+    "alt": "ST Line Laser analyser, Ex p version"
+   },
+   {
+    "file": "stll-exd",
+    "alt": "ST Line Laser analyser, Ex d version"
+   },
+   {
+    "file": "stll-exd-layout",
+    "alt": "ST Line Laser Ex d enclosure and internal layout"
+   }
+  ],
+  "diagram": null,
+  "tbd": false,
+  "pending": ""
+ },
+ {
+  "slug": "st-lle-9680",
+  "old_slug": "st-lle-9680-laser-gas-analyzer",
+  "name": "ST LLE-9680 Laser Gas Analyser",
+  "short": "ST LLE-9680",
+  "code": "ST LLE-9680",
+  "menu": "TDLAS, up to five gases",
+  "group": "process",
+  "featured": true,
+  "summary": "A 19-inch rack-mounted tunable diode laser (TDLAS) analyser measuring 1 to 5 gases simultaneously for at-line industrial analysis and environmental monitoring.",
+  "badge": "",
+  "key": [
+   [
+    "Principle",
+    "TDLAS"
+   ],
+   [
+    "Gases",
+    "1 to 5 simultaneously"
+   ],
+   [
+    "Format",
+    "19-inch 4U chassis"
+   ],
+   [
+    "Response (T90)",
+    "Within 30 s"
+   ]
+  ],
+  "intro": [
+   "The ST LLE-9680 is a 19-inch panel-mounted tunable laser gas analyser designed for at-line industrial analysis and environmental monitoring.",
+   "Based on tunable diode laser absorption spectroscopy (TDLAS), the analyser scans absorption peaks of the measured gas, free of background gas absorption, and calculates concentration from the second harmonic and line-broadening information. It measures 1 to 5 gases simultaneously from O₂, CO, NH₃, H₂S, HCl, HF, HCN, CO₂, CH₄ and H₂O, with low detection limits."
+  ],
+  "principle": [],
+  "features": [
+   "Universal structure, easy to integrate: standard 19-inch 4U chassis with modular internal components.",
+   "Strong anti-interference ability, high accuracy, small drift and high stability, using a low-noise semiconductor laser with single-line spectroscopy and wavelength scanning.",
+   "1 to 4 laser transmitter modules supporting 1 to 5 customisable parameters on one screen, with short response time and high sensitivity.",
+   "Corrosion-resistant key components for petrochemical and other corrosive environments.",
+   "Sampling installation directly at the process pipeline, with no moving parts and high reliability."
+  ],
+  "applications": [
+   "At-line industrial gas analysis",
+   "Environmental monitoring",
+   "Corrosive process environments"
+  ],
+  "industries": [
+   "Petrochemicals"
+  ],
+  "components": [],
+  "specs": [
+   [
+    "Measured gases",
+    [
+     "1 to 5 of: O₂, CO, NH₃, H₂S, HCl, HF, HCN, CO₂, CH₄, H₂O"
+    ]
+   ],
+   [
+    "Indication error",
+    [
+     "Within ±1% F.S."
+    ]
+   ],
+   [
+    "Repeatability",
+    [
+     "Within 2%"
+    ]
+   ],
+   [
+    "Zero drift",
+    [
+     "Within ±5% F.S. / 7 days"
+    ]
+   ],
+   [
+    "Span drift",
+    [
+     "Within ±5% F.S. / 7 days"
+    ]
+   ],
+   [
+    "Maintenance cycle",
+    [
+     "Within 2 times/year, clean optical window"
+    ]
+   ],
+   [
+    "Calibration cycle",
+    [
+     "Within 2 times/year"
+    ]
+   ],
+   [
+    "Response time (T90)",
+    [
+     "Within 30 s (related to flow rate)"
+    ]
+   ],
+   [
+    "Example: H₂S configuration",
+    [
+     "Range 0–100 ppm, accuracy ±5% F.S."
+    ]
+   ],
+   [
+    "Installation method",
+    [
+     "Sampling installation"
+    ]
+   ],
+   [
+    "Analog output",
+    [
+     "4 × 4–20 mA (isolated, max. load 750 Ω)"
+    ]
+   ],
+   [
+    "Analog input",
+    [
+     "2 × 4–20 mA (temperature, pressure compensation)"
+    ]
+   ],
+   [
+    "Switch output / input",
+    [
+     "4 outputs / 2 inputs (optional)"
+    ]
+   ],
+   [
+    "Communication interface",
+    [
+     "RS485 / RS232"
+    ]
+   ],
+   [
+    "Power",
+    [
+     "AC (220 ± 22) V, power based on specific configuration"
+    ]
+   ],
+   [
+    "Ambient temperature",
+    [
+     "−30 °C to 60 °C"
+    ]
+   ],
+   [
+    "Ambient humidity",
+    [
+     "Within 95% RH"
+    ]
+   ],
+   [
+    "Dimensions (W x H x D)",
+    [
+     "482.5 x 177 x 488 mm (19-inch, 4U)"
+    ]
+   ]
+  ],
+  "hazard": [],
+  "certs": [],
+  "images": [
+   {
+    "file": "lle-9680",
+    "alt": "ST LLE-9680 rack-mounted laser gas analyser"
+   }
+  ],
+  "diagram": null,
+  "tbd": false,
+  "pending": ""
+ },
+ {
+  "slug": "ap5-tfs",
+  "old_slug": "tunable-filter-spectroscopy-analyzer",
+  "name": "Tunable Filter Spectroscopy Analyser",
+  "short": "AP5-TFS",
+  "code": "AP5-TFS",
+  "menu": "Hydrocarbon composition, BTU and Wobbe index",
+  "group": "process",
+  "featured": false,
+  "summary": "Light-absorption spectroscopy analyser for real-time hydrocarbon composition of natural gas, LNG, LPG, BOG and biogas, with BTU, Wobbe index and density outputs.",
+  "badge": "IECEx Ex db · Zone 1",
+  "key": [
+   [
+    "Response",
+    "1 second"
+   ],
+   [
+    "Carrier / fuel gas",
+    "Not required"
+   ],
+   [
+    "Hazardous area",
+    "Ex d, Zone 1"
+   ],
+   [
+    "Ambient",
+    "−20 to 60 °C"
+   ]
+  ],
+  "intro": [
+   "The Tunable Filter Spectrometer (TFS) sensor platform consists of a light source, a sample cell, a wavelength-separating element (spectrometer) and a photo-detector.",
+   "The wavelength-separating element \"slices\" the wavelength components of the broadband light source, which then interact with the sample molecules. Some components are absorbed and others pass through; the absorption pattern gives the hydrocarbon composition in real time."
+  ],
+  "principle": [],
+  "features": [
+   "Fast one-second response.",
+   "No carrier gas or fuel gas required, and no instrument air.",
+   "No periodic on-site calibration required; no consumables.",
+   "BTU, Wobbe index and density outputs.",
+   "Pressure and temperature compensated, with linear response throughout the range.",
+   "Minimal sample conditioning required.",
+   "Low-power DC operation (AC available).",
+   "Remote, completely unattended operation; easy installation and low maintenance."
+  ],
+  "applications": [
+   "Custody transfer for sales gas",
+   "Pipeline gas quality monitoring (C1–C6 and acid gases)",
+   "Power generation & control (BTU, Wobbe index, methane number)",
+   "Fuel gas monitoring",
+   "Flare gas monitoring",
+   "Truck / ship / rail-car unloading terminals",
+   "Gas exploration (offshore & land-based)",
+   "Portable / temporary analysis"
+  ],
+  "industries": [
+   "Oil & Gas",
+   "Petrochemicals",
+   "Power Plant"
+  ],
+  "components": [],
+  "specs": [
+   [
+    "Measurement technique",
+    [
+     "Tunable filter (light absorption) spectroscopy"
+    ]
+   ],
+   [
+    "Gas cell volume / path length",
+    [
+     "100 mL / 35 cm"
+    ]
+   ],
+   [
+    "Measurement ranges",
+    [
+     "CH₄: 0–100%; C₂H₆: 0–25%; C₃H₈: 0–25%",
+     "iC₄H₁₀: 0–10%; nC₄ + nC₅ (as nC₄): 0–10%; iC₅ + neoC₅ (as iC₅): 0–10%",
+     "n-Hexane: 0–5%; H₂S: 0–50%; CO₂: 0–50%; balance"
+    ]
+   ],
+   [
+    "Calculated values",
+    [
+     "High heating value (HHV), low heating value (LHV), methane number"
+    ]
+   ],
+   [
+    "Repeatability",
+    [
+     "Gas channels: < 0.1 mol%",
+     "HHV & WI: < 0.3% of reading or < 0.15 MJ/m³ (greater of)",
+     "Specific gravity: < 0.06% of reading"
+    ]
+   ],
+   [
+    "Accuracy",
+    [
+     "Gas channels: ±0.3 mol% or ±1% of full scale or ±3% of reading (greater of)",
+     "HHV & WI: ±0.7% of reading or ±0.25 MJ/m³ (greater of)",
+     "Specific gravity: ±0.5% of reading"
+    ]
+   ],
+   [
+    "Zero drift",
+    [
+     "< 0.2% of full scale per month (typical)"
+    ]
+   ],
+   [
+    "Approvals and certifications",
+    [
+     "IECEx KLCS 22.0007X",
+     "Ex db IIB+H2 T5 Gb, Tamb −20 °C to +60 °C (Zone 1)"
+    ]
+   ]
+  ],
+  "hazard": [
+   "Flameproof enclosure \"d\"",
+   "Ex db IIB+H2 T5 Gb",
+   "Tamb −20 °C ≤ Ta ≤ +60 °C",
+   "Zone 1"
+  ],
+  "certs": [
+   {
+    "number": "IECEx KLCS 22.0007X",
+    "scope": "Hydrocarbon Gas Analyzer, Model AP5-TFS (Stolway Pty Ltd, Issue 1)",
+    "url": "https://www.iecex-certs.com/#/deliverables/CERT/1824393/view"
+   }
+  ],
+  "images": [],
+  "diagram": null,
+  "pending": "Product photo",
+  "tbd": false
+ },
+ {
+  "slug": "st-cems-5000c",
+  "old_slug": "st-cems-5000c",
+  "name": "ST CEMS-5000C Continuous Emission Monitoring System",
+  "short": "ST CEMS-5000C",
+  "code": "ST CEMS-5000C",
+  "menu": "Continuous emission monitoring",
+  "group": "emissions",
+  "featured": false,
+  "summary": "Continuous emission monitoring system covering flue gas analysis and pre-treatment, flue gas sampling and direct reading, and flue gas moisture measurement.",
+  "badge": "",
+  "key": [],
+  "intro": [],
+  "principle": [],
+  "features": [],
+  "applications": [],
+  "industries": [],
+  "components": [],
+  "specs": [],
+  "hazard": [],
+  "certs": [],
+  "images": [
+   {
+    "file": "cems-5000c",
+    "alt": "ST CEMS-5000C continuous emission monitoring cabinet"
+   }
+  ],
+  "diagram": null,
+  "pending": "Full description and technical specification",
+  "tbd": false
+ },
+ {
+  "slug": "st-dms-300",
+  "old_slug": "st-dms-300-dust-monitor",
+  "name": "ST DMS-300 Dust Monitor",
+  "short": "ST DMS-300",
+  "code": "ST DMS-300",
+  "menu": "Dust in wet, low-temperature flue gas",
+  "group": "emissions",
+  "featured": false,
+  "summary": "Explosion-proof (positive pressure) extractive dust monitor for low-temperature, high-humidity flue gas, particularly suited to ultra-low emission monitoring in power plants.",
+  "badge": "Explosion-proof (positive pressure)",
+  "key": [
+   [
+    "Principle",
+    "Laser forward scattering"
+   ],
+   [
+    "Sampling",
+    "Isokinetic extraction"
+   ],
+   [
+    "Measuring chamber",
+    "Fully heated"
+   ],
+   [
+    "Enclosure",
+    "Positive pressure, explosion-proof"
+   ]
+  ],
+  "intro": [
+   "Dust monitoring equipment developed for low-temperature and high-humidity working conditions, particularly suitable for monitoring ultra-low emissions in power plants.",
+   "The ST DMS-300 (positive pressure explosion-proof version) uses the laser forward-scattering principle. Particulates are extracted isokinetically from the flue into a fully heated gas chamber, where the forward-scattered light is measured and converted into an output signal proportional to concentration. It is designed for explosive gas or dust environments."
+  ],
+  "principle": [],
+  "features": [
+   "Laser forward-scattering measurement of particulate concentration.",
+   "Isokinetic extraction of particulates from the flue (chimney).",
+   "Fully heated gas chamber for low-temperature, high-humidity flue gas.",
+   "Positive pressure explosion-proof version for explosive gas or dust environments."
+  ],
+  "applications": [
+   "Ultra-low emission dust monitoring",
+   "Wet / high-humidity flue gas"
+  ],
+  "industries": [
+   "Power Plant"
+  ],
+  "components": [],
+  "specs": [],
+  "hazard": [
+   "Positive pressure explosion-proof version",
+   "For use in explosive gas or dust environments"
+  ],
+  "certs": [],
+  "images": [
+   {
+    "file": "dms-300",
+    "alt": "ST DMS-300 dust monitor with extractive probe"
+   }
+  ],
+  "diagram": null,
+  "pending": "Technical specification table",
+  "tbd": false
+ },
+ {
+  "slug": "st-co-5300",
+  "old_slug": "st-co-5300-co-analyzer",
+  "name": "ST CO-5300 CO Analyser",
+  "short": "ST CO-5300",
+  "code": "ST CO-5300",
+  "menu": "Ambient carbon monoxide",
+  "group": "ambient",
+  "featured": true,
+  "summary": "NDIR carbon monoxide analyser providing accurate, reliable ppm-level CO detection for atmospheric monitoring.",
+  "badge": "",
+  "key": [
+   [
+    "Principle",
+    "NDIR"
+   ],
+   [
+    "Range",
+    "0–50 ppm"
+   ],
+   [
+    "Lower detection limit",
+    "≤ 0.5 ppm"
+   ],
+   [
+    "Optical path",
+    "14 m effective"
+   ]
+  ],
+  "intro": [
+   "Based on Non-Dispersive Infrared (NDIR) technology, the CO analyser uses a modular structure and advanced micro-processing to provide accurate and reliable ppm-level CO detection that meets the requirements of atmospheric monitoring.",
+   "High-energy infrared light passes alternately through a chamber filled with CO and one without CO via a filter wheel, then through a sample absorption cell with a 14 m effective optical path. The CO concentration is calculated by comparing infrared absorption in the sample with that in the reference gas, following the Beer–Lambert law."
+  ],
+  "principle": [],
+  "features": [
+   "High sensitivity, high repeatability and simple operation.",
+   "Automatic monitoring of instrument parameters, with continuous self-check and alarm.",
+   "Remote calibration and diagnosis; auto zero and span calibration.",
+   "Self-check of light intensity attenuation.",
+   "Independent memory stores 15-minute average data for over 100 days, with auto backup.",
+   "Adaptive signal filtering optimises response time.",
+   "Temperature and pressure compensation.",
+   "Colour touchscreen display."
+  ],
+  "applications": [
+   "Ambient air quality monitoring",
+   "Atmospheric CO measurement"
+  ],
+  "industries": [],
+  "components": [],
+  "specs": [
+   [
+    "Measuring range",
+    [
+     "0–50 µmol/mol (ppm)"
+    ]
+   ],
+   [
+    "Units",
+    [
+     "ppb, ppm, µg/m³, mg/m³ (optional)"
+    ]
+   ],
+   [
+    "Response time",
+    [
+     "< 120 s"
+    ]
+   ],
+   [
+    "Zero noise",
+    [
+     "≤ 0.25 ppm"
+    ]
+   ],
+   [
+    "Span noise",
+    [
+     "≤ 0.5 ppm"
+    ]
+   ],
+   [
+    "Lower detection limit",
+    [
+     "≤ 0.5 ppm"
+    ]
+   ],
+   [
+    "24 h zero drift",
+    [
+     "±0.25 ppm"
+    ]
+   ],
+   [
+    "24 h span drift",
+    [
+     "20% span: < 0.2 ppm; 80% span: < 0.5 ppm; range: ±2 ppm"
+    ]
+   ],
+   [
+    "7 d long-term drift",
+    [
+     "Zero: ±0.5 ppm; span: ±1 ppm"
+    ]
+   ],
+   [
+    "Precision",
+    [
+     "20% range: ≤ 0.4 ppm; 80% range: ≤ 0.4 ppm"
+    ]
+   ],
+   [
+    "Linearity",
+    [
+     "< 1% F.S."
+    ]
+   ],
+   [
+    "Repeatability",
+    [
+     "< 1%"
+    ]
+   ],
+   [
+    "Indication error",
+    [
+     "±1% F.S."
+    ]
+   ],
+   [
+    "Voltage stability",
+    [
+     "±0.5% F.S."
+    ]
+   ],
+   [
+    "Flow stability",
+    [
+     "(800 ± 80) sccm"
+    ]
+   ],
+   [
+    "Working temperature / humidity",
+    [
+     "15 °C to 35 °C; 0–85% RH"
+    ]
+   ],
+   [
+    "Dimensions",
+    [
+     "178 x 432 x 635 mm"
+    ]
+   ],
+   [
+    "Weight",
+    [
+     "< 20 kg"
+    ]
+   ],
+   [
+    "Power supply",
+    [
+     "(220 ± 20) V, (50 ± 1) Hz"
+    ]
+   ],
+   [
+    "Communication",
+    [
+     "RS232 / RS485"
+    ]
+   ]
+  ],
+  "hazard": [],
+  "certs": [],
+  "images": [
+   {
+    "file": "co-5300",
+    "alt": "ST CO-5300 carbon monoxide analyser"
+   }
+  ],
+  "diagram": null,
+  "tbd": false,
+  "pending": ""
+ },
+ {
+  "slug": "st-mgc-5800",
+  "old_slug": "st-mgc-5800-multi-gas-calibrator",
+  "name": "ST MGC-5800 Multi Gas Calibrator",
+  "short": "ST MGC-5800",
+  "code": "ST MGC-5800",
+  "menu": "Zero and span gas calibration",
+  "group": "ambient",
+  "featured": false,
+  "summary": "Dynamic dilution calibrator using high-precision mass flow controllers to supply zero and span gas to analysers, with optional ozone generator and UV photometer.",
+  "badge": "",
+  "key": [
+   [
+    "Principle",
+    "Proportional dilution"
+   ],
+   [
+    "Standard gas inputs",
+    "4"
+   ],
+   [
+    "Flow control accuracy",
+    "±1%"
+   ],
+   [
+    "Options",
+    "Ozonator & UV photometer"
+   ]
+  ],
+  "intro": [
+   "The dynamic calibrator uses high-precision mass flow controllers and standard gas to supply gas for zero and span testing of analysers by proportional dilution. It can supply four gas sources simultaneously; the optional ozonator and ultraviolet photometer output high-precision ozone and NO₂ standard gas.",
+   "Two high-precision mass flow controllers pass a large flow of diluent (zero) gas and a small flow of standard gas, which are mixed evenly in a quartz gas-phase titration chamber to give a proportionally diluted standard gas. The ozonator uses a UV photometer to accurately control oxygen ionisation and produce high-precision O₃."
+  ],
+  "principle": [],
+  "features": [
+   "High-precision Swiss mass flow controllers.",
+   "High dilution ratio and fast response.",
+   "Quartz gas-phase titration chamber with multiple calibration gas interfaces.",
+   "Continuous self-check with alarm, including light intensity attenuation.",
+   "Bidirectional RS232 port for remote control; working parameters available digitally.",
+   "Colour touchscreen; large memory stores historical data automatically.",
+   "Task software for monitoring test data during operation.",
+   "Optional ozonator and photometer."
+  ],
+  "applications": [
+   "Analyser zero and span calibration",
+   "Ozone and NO₂ standard gas generation"
+  ],
+  "industries": [],
+  "components": [],
+  "specs": [
+   [
+    "Dilution gas flow range",
+    [
+     "0–5 SLPM, 0–10 SLPM or 0–20 SLPM (optional)"
+    ]
+   ],
+   [
+    "Standard gas flow range",
+    [
+     "0–50 sccm, 0–100 sccm or 0–200 sccm (optional)"
+    ]
+   ],
+   [
+    "Flow control accuracy",
+    [
+     "±1%"
+    ]
+   ],
+   [
+    "Flow linearity",
+    [
+     "±0.5%"
+    ]
+   ],
+   [
+    "Flow control repeatability",
+    [
+     "±0.2%"
+    ]
+   ],
+   [
+    "Standard gas input ports",
+    [
+     "4"
+    ]
+   ],
+   [
+    "Diluent gas inlet",
+    [
+     "1"
+    ]
+   ],
+   [
+    "Ozone module output (optional)",
+    [
+     "0.1–6 µmol/mol (ppm), error ±1%"
+    ]
+   ],
+   [
+    "Power requirement",
+    [
+     "200–240 V, 50/60 Hz, 400 W"
+    ]
+   ],
+   [
+    "Analog output",
+    [
+     "10 V, 5 V, 1 V, 0.1 V (optional)"
+    ]
+   ],
+   [
+    "Communication",
+    [
+     "RS232, RS485; Ethernet (optional)"
+    ]
+   ],
+   [
+    "Weight",
+    [
+     "14.06 kg (basic unit); 17.78 kg with photometer, titration chamber and ozonator"
+    ]
+   ],
+   [
+    "Working temperature / humidity",
+    [
+     "15 °C to 35 °C; 0–85% RH"
+    ]
+   ]
+  ],
+  "hazard": [],
+  "certs": [],
+  "images": [
+   {
+    "file": "mgc-5800",
+    "alt": "ST MGC-5800 multi gas calibrator"
+   }
+  ],
+  "diagram": null,
+  "tbd": false,
+  "pending": ""
+ },
+ {
+  "slug": "st-c-nh3-5302",
+  "old_slug": "st-c-nh3-5302-ammonia-converter",
+  "name": "ST C NH3-5302 Ammonia Converter",
+  "short": "ST C NH3-5302",
+  "code": "ST C NH3-5302",
+  "menu": "Ammonia conversion for NOx analysers",
+  "group": "ambient",
+  "featured": false,
+  "summary": "Thermal converter used with a nitrogen oxide analyser to measure ammonia (NH₃), oxidising NH₃ to NOx over precious-metal catalysts at high temperature.",
+  "badge": "",
+  "key": [
+   [
+    "Conversion efficiency",
+    "> 90%"
+   ],
+   [
+    "Furnace temperature",
+    "550–900 °C"
+   ],
+   [
+    "Range",
+    "0–2000 ppb"
+   ],
+   [
+    "Flow rate",
+    "0.1–1.5 L/min"
+   ]
+  ],
+  "intro": [
+   "The ammonia converter is a thermal converter used in conjunction with a nitrogen oxide analyser to measure ammonia (NH₃). It is portable, has low power consumption and is easy to operate.",
+   "It uses high temperatures and precious-metal catalysts to oxidise ammonia into NOx, which the connected analyser then measures."
+  ],
+  "principle": [],
+  "features": [
+   "NH₃ conversion efficiency greater than 90%.",
+   "Ammonia furnace temperature 550 °C to 900 °C.",
+   "Easy to operate with minimal daily maintenance.",
+   "Portable, with low power consumption."
+  ],
+  "applications": [
+   "Ammonia measurement with a NOx analyser"
+  ],
+  "industries": [],
+  "components": [],
+  "specs": [
+   [
+    "Principle",
+    [
+     "Catalytic combustion reaction and molecular-sieve adsorption filtration"
+    ]
+   ],
+   [
+    "Measurement range",
+    [
+     "0–2000 ppb"
+    ]
+   ],
+   [
+    "Conversion tube volume",
+    [
+     "88.5 cc"
+    ]
+   ],
+   [
+    "Conversion efficiency",
+    [
+     "90%"
+    ]
+   ],
+   [
+    "Gas pressure",
+    [
+     "Vacuum to a maximum of 2 bar"
+    ]
+   ],
+   [
+    "Response time",
+    [
+     "5–10% of the analyser's rise/fall time"
+    ]
+   ],
+   [
+    "Accuracy",
+    [
+     "± 2 °C"
+    ]
+   ],
+   [
+    "Flow rate",
+    [
+     "0.1–1.5 L/min"
+    ]
+   ],
+   [
+    "Operating temperature / humidity",
+    [
+     "25 °C to 45 °C; 0–95% RH"
+    ]
+   ],
+   [
+    "Power supply",
+    [
+     "200–240 VAC, 50 Hz, 5 A"
+    ]
+   ],
+   [
+    "Dimensions (L x D x H)",
+    [
+     "483 x 355 x 178 mm"
+    ]
+   ]
+  ],
+  "hazard": [],
+  "certs": [],
+  "images": [
+   {
+    "file": "nh3-5302",
+    "alt": "ST C NH3-5302 ammonia converter"
+   }
+  ],
+  "diagram": null,
+  "tbd": false,
+  "pending": ""
+ },
+ {
+  "slug": "stl800",
+  "old_slug": "liquid-analyzer-stl800",
+  "name": "Liquid Analyser STL800",
+  "short": "STL800",
+  "code": "STL800",
+  "menu": "Details to be confirmed",
+  "group": "liquid",
+  "featured": false,
+  "summary": "",
+  "badge": "",
+  "key": [],
+  "intro": [],
+  "principle": [],
+  "features": [],
+  "applications": [],
+  "industries": [],
+  "components": [],
+  "specs": [],
+  "hazard": [],
+  "certs": [],
+  "images": [],
+  "diagram": null,
+  "tbd": true,
+  "pending": ""
+ },
+ {
+  "slug": "stc800",
+  "old_slug": "liquid-analyzer-stc800",
+  "name": "Liquid Analyser STC800",
+  "short": "STC800",
+  "code": "STC800",
+  "menu": "Details to be confirmed",
+  "group": "liquid",
+  "featured": false,
+  "summary": "",
+  "badge": "",
+  "key": [],
+  "intro": [],
+  "principle": [],
+  "features": [],
+  "applications": [],
+  "industries": [],
+  "components": [],
+  "specs": [],
+  "hazard": [],
+  "certs": [],
+  "images": [],
+  "diagram": null,
+  "tbd": true,
+  "pending": ""
+ },
+ {
+  "slug": "level-profiler",
+  "old_slug": "level-profiler",
+  "name": "Level Profiler",
+  "short": "Level Profiler",
+  "code": "Level Profiler",
+  "menu": "Separator and vessel layer profiling",
+  "group": "liquid",
+  "featured": false,
+  "summary": "A \"virtual window\" into separators and vessels: locates water, emulsion, oil, foam and gas layers without any nuclear sources.",
+  "badge": "ATEX / IECEx Ex ia",
+  "key": [
+   [
+    "Principle",
+    "Single Electrode Capacitance (SeCaP)"
+   ],
+   [
+    "Resolution",
+    "Down to 1 cm"
+   ],
+   [
+    "Design pressure",
+    "Up to 450 bar"
+   ],
+   [
+    "Hazardous area",
+    "Ex ia, intrinsically safe"
+   ]
+  ],
+  "intro": [
+   "DP and guided wave radar level transmitters, and even mechanical floaters and visual gauges, serve their purpose in light, sweet crudes and wherever water separates easily from oil. Heavier and more viscous crude oils introduce much more complex layers and less defined levels in production separators.",
+   "With tight emulsions, long settling times and severe foaming, operators need better information to optimise separator throughput while still avoiding excess water on the oil outlet and liquid carry-over on the gas outlet.",
+   "The Stolway Level Profiler uses a series of SeCaP sensors to let operators \"see through the walls\" of the separator, giving a seamless representation of complex separator layers without any nuclear sources."
+  ],
+  "principle": [],
+  "features": [
+   "Accurate location of water, emulsion, oil, foam and free gas layers relative to the top of the weir plate.",
+   "Seamless gradient colour for varying water cut across the emulsion layer.",
+   "Vertical resolution customised to your requirements (1 cm resolution possible).",
+   "Resolution optimised at critical levels in the separator, for example just below the top of the weir plate.",
+   "Optional flushing capability for effective cleaning of sensors without affecting production."
+  ],
+  "applications": [
+   "Production separators",
+   "Heavy and viscous crude oils",
+   "Tight emulsions and severe foaming",
+   "Oil/water interface level and alarm"
+  ],
+  "industries": [
+   "Oil & Gas"
+  ],
+  "components": [
+   "Profiler rod (sensor unit)",
+   "Controller unit enclosure",
+   "Safe area analyser interface cabinet"
+  ],
+  "specs": [
+   [
+    "Rod diameter and length",
+    [
+     "80 mm OD (typical), max. 30 m for one profiler rod (vertical)"
+    ]
+   ],
+   [
+    "Rod material",
+    [
+     "SS 316L, Duplex, Super Duplex, Inconel 625 or others on request"
+    ]
+   ],
+   [
+    "Rod construction",
+    [
+     "Machined sections up to 3.5 m, bolted together in situ for longer rods"
+    ]
+   ],
+   [
+    "Process connection",
+    [
+     "Flanged, minimum 4\" ANSI/API, 150# to 900#, RF/RTJ"
+    ]
+   ],
+   [
+    "Number of sensors",
+    [
+     "Selected by customer based on separator height and required resolution"
+    ]
+   ],
+   [
+    "Design temperature",
+    [
+     "125 °C, 175 °C, 225 °C"
+    ]
+   ],
+   [
+    "Design pressure",
+    [
+     "Up to 450 bar (depending on process connection pressure rating)"
+    ]
+   ],
+   [
+    "Rod enclosure protection",
+    [
+     "IP66 (profiler rod terminals housing)"
+    ]
+   ],
+   [
+    "Controller unit dimensions",
+    [
+     "375 x 265 x 108 mm (14.8\" x 10.4\" x 4.3\")"
+    ]
+   ],
+   [
+    "Controller unit material",
+    [
+     "SS 316, stand-alone mounting"
+    ]
+   ],
+   [
+    "Controller unit protection",
+    [
+     "IP66 / IP67"
+    ]
+   ],
+   [
+    "Hazardous area classification",
+    [
+     "Ex ia protection from sensor unit to safe area analyser interface cabinet",
+     "Profiler rod (sensor unit): ATEX/IECEx II 1/(1)G Ex ia/[Ex ia] IIB T4-T2 Ga",
+     "Controller unit enclosure: ATEX/IECEx Ex ia IIB T4 Ga, −40 °C ≤ Ta ≤ +60 °C",
+     "Analyser interface cabinet: must be placed in a safe area",
+     "IS barriers: in the safe area within the analyser interface cabinet, or in Zone 2 if required"
+    ]
+   ],
+   [
+    "ATEX certificate",
+    [
+     "Presafe 16 ATEX 8593X"
+    ]
+   ],
+   [
+    "IECEx certificate",
+    [
+     "PRE 14.0004X"
+    ]
+   ],
+   [
+    "Ambient temperature",
+    [
+     "−40 °C ≤ Ta ≤ +60 °C"
+    ]
+   ],
+   [
+    "Outputs",
+    [
+     "RS485 Modbus RTU, 4–20 mA (for example oil/water interface level and alarm)"
+    ]
+   ],
+   [
+    "External power supply",
+    [
+     "120/230 VAC, 24 VDC to safe area analyser interface cabinet"
+    ]
+   ],
+   [
+    "Power consumption",
+    [
+     "< 10 W"
+    ]
+   ],
+   [
+    "Cable entry",
+    [
+     "Profiler rod terminals housing: factory connected instrument cable",
+     "Controller unit enclosure: factory connected instrument cable + M20"
+    ]
+   ],
+   [
+    "Maximum cable length",
+    [
+     "Profiler rod to controller unit: 5 m",
+     "Controller unit to safe area barrier modules: 500 m"
+    ]
+   ],
+   [
+    "Primary measurement",
+    [
+     "Water, emulsion, oil, foam and gas profile (Modbus RTU serial output)",
+     "Water level in % or mm (4–20 mA output)"
+    ]
+   ],
+   [
+    "Measurement principle",
+    [
+     "Single Electrode Capacitance (SeCaP)"
+    ]
+   ],
+   [
+    "Measurement range",
+    [
+     "Defined by the profiler rod's active measurement section length"
+    ]
+   ],
+   [
+    "Profile resolution",
+    [
+     "Active measurement section length divided by the number of sensors"
+    ]
+   ],
+   [
+    "Sensitivity",
+    [
+     "Each sensor distinguishes between water, emulsion (including varying water content across the emulsion layer), oil, foam and gas"
+    ]
+   ]
+  ],
+  "hazard": [
+   "Ex ia protection from the sensor unit to the safe area analyser interface cabinet",
+   "Profiler rod: ATEX/IECEx II 1/(1)G Ex ia/[Ex ia] IIB T4-T2 Ga",
+   "Controller unit: ATEX/IECEx Ex ia IIB T4 Ga, −40 °C ≤ Ta ≤ +60 °C",
+   "ATEX certificate Presafe 16 ATEX 8593X, IECEx certificate PRE 14.0004X"
+  ],
+  "certs": [],
+  "images": [],
+  "diagram": null,
+  "pending": "Product photo. Text recovered from the old website: please confirm it is still current",
+  "tbd": false
+ },
+ {
+  "slug": "water-cut-meter",
+  "old_slug": "service/water-cut-meter",
+  "name": "Water Cut Meter",
+  "short": "Water Cut Meter",
+  "code": "Water Cut Meter",
+  "menu": "Details to be confirmed",
+  "group": "liquid",
+  "featured": false,
+  "summary": "",
+  "badge": "",
+  "key": [],
+  "intro": [],
+  "principle": [],
+  "features": [],
+  "applications": [],
+  "industries": [],
+  "components": [],
+  "specs": [],
+  "hazard": [],
+  "certs": [],
+  "images": [],
+  "diagram": null,
+  "tbd": true,
+  "pending": ""
+ }
+]

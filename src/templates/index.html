@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% from "macros.html" import pic, head, card, tech_tiles with context %}
+{% block main %}
+<section class="slider slider--spectrum" aria-roledescription="carousel" aria-label="Stolway Analytics highlights" data-slider>
+  <div class="slide-media spectrum-bg" aria-hidden="true"><canvas data-spectrum></canvas></div>
+  {% for s in slides %}
+  <div class="slide{% if loop.first %} is-active{% endif %}" role="group" aria-roledescription="slide" aria-label="{{ loop.index }} of {{ slides|length }}"{% if not loop.first %} aria-hidden="true"{% endif %}>
+    <div class="wrap slide-inner">
+      <p class="slide-eyebrow"><span aria-hidden="true"></span>{{ s.eyebrow }}<span aria-hidden="true"></span></p>
+      {% if loop.first %}<h1 class="slide-title">{% else %}<h2 class="slide-title">{% endif %}{{ s.title }}<span class="slide-accent">{{ s.accent }}</span>{% if loop.first %}</h1>{% else %}</h2>{% endif %}
+      <p class="slide-text">{{ s.text }}</p>
+      <div class="btn-row">
+        <a class="btn btn--light" href="{{ s.href }}"{% if not loop.first %} tabindex="-1"{% endif %}>{{ s.cta }}</a>
+        <a class="btn btn--ghost" href="contact.html?type=quote"{% if not loop.first %} tabindex="-1"{% endif %}>Request a Quote</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  <div class="wrap slider-foot">
+    <div class="slider-controls">
+      <button class="slider-arrow slider-arrow--prev" type="button" aria-label="Previous banner"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      {% for s in slides %}<button class="slider-dot" type="button" aria-label="Show banner {{ loop.index }}: {{ s.title }}"{% if loop.first %} aria-current="true"{% endif %}></button>{% endfor %}
+      <button class="slider-pause" type="button" aria-label="Pause slideshow" hidden>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path pathLength="1" d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      </button>
+      <button class="slider-arrow slider-arrow--next" type="button" aria-label="Next banner"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <ul class="quick-links">
+      <li><a href="contact.html?type=datasheet">Request a Datasheet</a></li>
+      <li><a href="resources.html#certificates">IECEx Certificates</a></li>
+      <li><a href="technology.html">Our Technology</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="trust" aria-label="Certification">
+  <div class="wrap">
+    <ul class="trust-list">
+      {% for c in certs %}<li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>{{ c }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="groups-title">
+  <div class="wrap">
+    {{ head('groups-title', 'What We Offer', 'Analysers For Process, Stack', '& Ambient Applications', 'Four product groups covering process gas composition, emissions monitoring, ambient air and liquid measurement.') }}
+    <div class="group-grid">
+      {% for g in groups %}
+      <a class="group-card" href="products.html#{{ g.id }}">
+        <div class="media">{{ pic(g.image, '', '(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 280px') }}</div>
+        <div class="body">
+          <p class="meta">{{ g.products|length }} product{{ 's' if g.products|length != 1 }}</p>
+          <h3>{{ g.name }}</h3>
+          <p>{{ g.intro }}</p>
+          <span class="explore">Explore</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--grey" aria-labelledby="featured-title">
+  <div class="wrap">
+    {{ head('featured-title', 'Featured Products', 'Our Analysers', '& Sampling Systems', 'Laser and spectroscopy analysers, sampling systems and emissions monitoring built for demanding industrial sites.') }}
+    {% set f = featured[0] %}
+    <article class="feature-card">
+      <div class="feature-media">
+        {{ pic(f.images[0].file, f.images[0].alt, '(max-width: 900px) 100vw, 640px') }}
+        {% if f.badge %}<span class="badge">{{ f.badge }}</span>{% endif %}
+      </div>
+      <div class="feature-body">
+        <h3>{{ f.name }}</h3>
+        <p class="tagline">Reliable CEMS sampling in severe service</p>
+        <p>{{ f.summary }}</p>
+        <ul class="tag-list">{% for a in ["CEMS stack gas", "Mass emission monitoring", "Heated to 200 °C", "Auto blowback"] %}<li>{{ a }}</li>{% endfor %}</ul>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="products/{{ f.slug }}.html">Explore The SSS</a>
+          <a class="btn btn--outline" href="contact.html?type=quote&amp;system={{ f.slug }}">Request a Quote</a>
+        </div>
+      </div>
+    </article>
+    <div class="product-grid" style="margin-top:24px">
+      {% for p in featured[1:4] %}{{ card(p) }}
+      {% endfor %}
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:40px"><a class="btn btn--outline" href="products.html">View All Products</a></div>
+  </div>
+</section>
+
+<section class="section section--dark" aria-labelledby="tech-title">
+  <div class="wrap">
+    <div class="center-head center-head--dark">
+      <p class="pill">Technology</p>
+      <h2 id="tech-title">Measurement Principles <span class="accent">Behind Our Range</span></h2>
+      <p>Each analyser is built on a proven measurement principle, matched to the application.</p>
+    </div>
+    {{ tech_tiles(tech) }}
+    <div style="display:flex;justify-content:center;margin-top:40px"><a class="btn btn--light" href="technology.html">How Each One Works</a></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="about-title">
+  <div class="wrap about-block">
+    <div class="mission-card">
+      <p class="eyebrow">Our mission</p>
+      <p class="mission-text">{{ about.mission }}</p>
+      <ul class="value-list">{% for v in about["values"] %}<li>{{ v }}</li>{% endfor %}</ul>
+    </div>
+    <div class="stack" style="align-items:flex-start">
+      <p class="eyebrow">About Us</p>
+      <h2 id="about-title" class="two-tone">Welcome To <span class="accent">Stolway Analytics.</span></h2>
+      <p class="lead">{{ about.summary }}</p>
+      <p>{{ about.expertise }}</p>
+      <ul class="ticks ticks--two">
+        <li>Spectroscopy-based analysers</li>
+        <li>IECEx certified designs</li>
+        <li>Solutions tailored to your needs</li>
+        <li>Part of the Stolway group</li>
+      </ul>
+      <a class="btn btn--primary" href="about.html">More About Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--grey" aria-labelledby="why-title">
+  <div class="wrap">
+    {{ head('why-title', 'Why Stolway Analytics', 'Precision, Reliability', '& Expertise') }}
+    <ol class="why-row">
+      {% for w in why %}
+      <li class="why-tile">
+        <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{{ icons[w.icon]|safe }}</svg></span>
+        <span class="why-num" aria-hidden="true">{{ '%02d' % loop.index }}</span>
+        <h3>{{ w.title }}</h3>
+        <p>{{ w.text }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="industries-title">
+  <div class="wrap">
+    {{ head('industries-title', 'Industries', 'Industries', 'We Serve') }}
+    <ul class="industry-list industry-list--four">
+      {% for i in industries %}<li><h3>{{ i.name }}</h3><p>{{ i.text }}</p></li>
+      {% endfor %}
+    </ul>
+    <div style="margin-top:clamp(40px,6vw,64px)">{% include "sister.html" %}</div>
+  </div>
+</section>
+{% include "cta.html" %}
+<script src="{{ root }}assets/js/spectrum.js?v={{ site.version }}" defer></script>
+{% endblock %}

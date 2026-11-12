@@ -1,0 +1,15 @@
+{
+  "name": "Stolway Analytics",
+  "short_name": "Stolway Analytics",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FFFFFF",
+  "theme_color": "#10164E",
+  "icons": [
+    {
+      "src": "/assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

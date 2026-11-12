@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% from "macros.html" import pic, head, card with context %}
+{% block main %}
+{% include "banner.html" %}
+<nav class="page-nav" aria-label="Product groups">
+  <ul class="wrap">
+    {% for g in groups %}<li><a href="#{{ g.id }}">{{ g.name }}</a></li>{% endfor %}
+  </ul>
+</nav>
+{% for g in groups %}
+<section class="section{% if loop.index is even %} section--grey{% endif %}" id="{{ g.id }}" aria-labelledby="{{ g.id }}-title">
+  <div class="wrap">
+    <div class="group-head">
+      <p class="eyebrow">Group {{ '%02d' % loop.index }}</p>
+      <h2 id="{{ g.id }}-title">{{ g.name }}</h2>
+      <p>{{ g.intro }}</p>
+    </div>
+    <div class="product-grid">
+      {% for p in g.products %}{{ card(p) }}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+<section class="section" aria-labelledby="industries-title">
+  <div class="wrap">
+    {{ head('industries-title', 'Industries', 'Industries', 'We Serve') }}
+    <ul class="industry-list industry-list--four">
+      {% for i in industries %}<li><h3>{{ i.name }}</h3><p>{{ i.text }}</p></li>
+      {% endfor %}
+    </ul>
+    <div style="margin-top:clamp(40px,6vw,64px)">{% include "sister.html" %}</div>
+  </div>
+</section>
+{% include "cta.html" %}
+{% endblock %}

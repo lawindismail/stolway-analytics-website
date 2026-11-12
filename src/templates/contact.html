@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block main %}
+{% include "banner.html" %}
+<section class="section section--grey">
+  <div class="wrap">
+    <ul class="quick-contact">
+      <li><a href="tel:{{ site.phone|replace(' ', '') }}"><span class="qc-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.500 3h3l1.300 3.600-1.800 1.300a9 9 0 0 0 5.100 5.100l1.300-1.800 3.600 1.300v3A1.500 1.500 0 0 1 15.500 17 12.500 12.500 0 0 1 3 4.500 1.500 1.500 0 0 1 4.500 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span><span class="qc-label">Call us</span><strong>{{ site.phone }}</strong></span></a></li>
+      <li><a href="mailto:{{ site.email }}"><span class="qc-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.500" y="4.500" width="15" height="11" rx="1.800" fill="none" stroke="currentColor" stroke-width="1.600"/><path d="m3.500 6 6.500 5 6.500-5" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linejoin="round"/></svg></span><span><span class="qc-label">Email us</span><strong>{{ site.email }}</strong></span></a></li>
+      <li><a href="#offices"><span class="qc-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 18s6-5.2 6-10a6 6 0 1 0-12 0c0 4.800 6 10 6 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="10" cy="8" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span><span><span class="qc-label">Our offices</span><strong>Abu Dhabi &amp; Wollongong</strong></span></a></li>
+    </ul>
+  </div>
+  <div class="wrap contact-grid">
+    <div class="stack">
+      <h2>Send an enquiry</h2>
+      <p>The more detail you can give us at the start, the faster we can help. Only your name, email and a short message are required. You can attach specifications when we reply.</p>
+      <form class="form" id="enquiry-form" novalidate data-endpoint="{{ site.form_endpoint }}" data-fallback-email="{{ site.email }}" method="post" action="{{ site.form_endpoint or '#' }}" style="margin-top:12px">
+        <div class="field"><label for="f-name">Name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required><p class="error" hidden></p></div>
+        <div class="field"><label for="f-email">Email <span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required><p class="error" hidden></p></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
+        <div class="field"><label for="f-type">I need</label>
+          <select id="f-type" name="type">
+            <option value="quote">A quote</option>
+            <option value="datasheet">A datasheet</option>
+            <option value="service">Technical support or service</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-system">Product</label>
+          <select id="f-system" name="system">
+            <option value="">Not sure / not applicable</option>
+            {% for p in products %}<option value="{{ p.slug }}">{{ p.name }}</option>{% endfor %}
+          </select>
+        </div>
+        <div class="field"><label for="f-location">Project location</label><input id="f-location" name="location" type="text" placeholder="Site or country"></div>
+        <div class="field"><label for="f-zone">Hazardous area classification</label><input id="f-zone" name="classification" type="text" placeholder="e.g. Zone 1 IIC T4"></div>
+        <div class="field full"><label for="f-message">Your requirement <span class="req" aria-hidden="true">*</span></label><textarea id="f-message" name="message" required aria-describedby="f-message-hint"></textarea><p class="hint" id="f-message-hint">What you need to measure, the ranges and the process conditions all help.</p><p class="error" hidden></p></div>
+        <div class="hp" aria-hidden="true"><label for="f-website">Leave this field empty</label><input id="f-website" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
+        <div class="full" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+          <p class="note" style="max-width:46ch">We use your details only to respond to your enquiry. See our <a href="privacy.html">privacy policy</a>.</p>
+          <button class="btn btn--primary" type="submit">Send enquiry</button>
+        </div>
+        <div class="form-status" role="status" tabindex="-1" hidden></div>
+      </form>
+    </div>
+    <aside class="contact-aside" aria-label="Before you send">
+      <div class="aside-card">
+        <h2>Helpful to include</h2>
+        <p>None of this is required, but it lets us come back with a useful answer first time.</p>
+        <ul class="ticks">
+          <li>Gases or liquids to measure</li>
+          <li>Measuring ranges</li>
+          <li>Process pressure and temperature</li>
+          <li>Hazardous area classification</li>
+          <li>Quantity and timing</li>
+        </ul>
+      </div>
+      <div class="aside-card aside-card--links">
+        <h2>Looking for something specific?</h2>
+        <ul>
+          <li><a href="products.html">All products</a></li>
+          <li><a href="resources.html#certificates">IECEx certificates</a></li>
+          <li><a href="resources.html#datasheets">Datasheets</a></li>
+          <li><a href="technology.html">Measurement technology</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section" id="offices" aria-labelledby="offices-title">
+  <div class="wrap">
+    <div class="center-head">
+      <p class="pill">Our Locations</p>
+      <h2 id="offices-title">Where To <span class="accent">Find Us</span></h2>
+      <p>Sales, service and manufacturing in the United Arab Emirates and Australia.</p>
+    </div>
+    <div class="loc">
+      <div class="loc-tabs" role="tablist" aria-label="Stolway Analytics locations">
+        {% for o in offices %}<button class="loc-tab{% if loop.first %} is-active{% endif %}" type="button" role="tab" id="loc-tab-{{ loop.index }}" aria-controls="loc-panel-{{ loop.index }}" aria-selected="{{ 'true' if loop.first else 'false' }}" data-globe-card>{{ o.city.split(',')[0] }}<span>{{ o.city.split(', ')[1] }}</span></button>
+        {% endfor %}
+      </div>
+      <div class="loc-body">
+        <div class="loc-panels">
+          {% for o in offices %}
+          <div class="loc-panel" role="tabpanel" id="loc-panel-{{ loop.index }}" aria-labelledby="loc-tab-{{ loop.index }}" data-globe-panel{% if not loop.first %} hidden{% endif %}>
+            <p class="loc-role">{{ o.role }}</p>
+            <h3>{{ o.city }}</h3>
+            <p class="loc-entity">{{ o.entity }}</p>
+            <ul class="loc-lines">
+              <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 18s6-5.2 6-10a6 6 0 1 0-12 0c0 4.800 6 10 6 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="10" cy="8" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><address>{{ o.lines|join(', ') }}</address></li>
+              {% if o.phone %}<li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.500 3h3l1.300 3.600-1.800 1.300a9 9 0 0 0 5.100 5.100l1.300-1.800 3.600 1.300v3A1.500 1.500 0 0 1 15.500 17 12.500 12.500 0 0 1 3 4.500 1.500 1.500 0 0 1 4.500 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><a href="tel:{{ o.phone|replace(' ', '') }}">{{ o.phone }}</a></li>{% endif %}
+              {% if o.email %}<li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.500" y="4.500" width="15" height="11" rx="1.800" fill="none" stroke="currentColor" stroke-width="1.600"/><path d="m3.500 6 6.500 5 6.500-5" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linejoin="round"/></svg><a href="mailto:{{ o.email }}">{{ o.email }}</a></li>{% endif %}
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn--light btn--small" href="https://www.google.com/maps/search/?api=1&amp;query={{ (o.lines|join(', '))|urlencode }}" target="_blank" rel="noopener">Get directions <span aria-hidden="true">↗</span></a>
+              {% if o.email %}<a class="btn btn--ghost btn--small" href="mailto:{{ o.email }}">Email this office</a>{% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="globe" data-globe="{{ globe }}" data-globe-auto="false">
+          <canvas role="img" aria-label="Globe showing the selected location"></canvas>
+          <p class="globe-hint">Drag to turn the globe</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="{{ root }}assets/js/globe.js?v={{ site.version }}" defer></script>
+{% endblock %}

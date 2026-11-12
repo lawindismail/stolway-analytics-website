@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% from "macros.html" import pic, head with context %}
+{% block main %}
+{% include "banner.html" %}
+<nav class="page-nav" aria-label="On this page">
+  <ul class="wrap">
+    <li><a href="#certificates">IECEx certificates</a></li>
+    <li><a href="#ex-marking">Reading an Ex marking</a></li>
+    <li><a href="#standards">Standards</a></li>
+    <li><a href="#datasheets">Datasheets</a></li>
+    <li><a href="#glossary">Glossary</a></li>
+  </ul>
+</nav>
+
+<section class="section" id="certificates" aria-labelledby="certificates-title">
+  <div class="wrap">
+    {{ head('certificates-title', 'Certification', 'IECEx', 'Certificates', 'Select a certificate to check its current status on the official IECEx register.') }}
+    <div class="table-wrap">
+      <table class="cert-table">
+        <caption class="visually-hidden">IECEx certificates for Stolway Analytics products</caption>
+        <thead><tr><th scope="col">Certificate</th><th scope="col">Equipment</th><th scope="col">Product</th><th scope="col"><span class="visually-hidden">Verify</span></th></tr></thead>
+        <tbody>
+          {% for c in cert_rows %}
+          <tr><th scope="row">{{ c.number }}</th><td>{{ c.scope }}</td><td><a href="products/{{ c.product.slug }}.html">{{ c.product.short }}</a></td><td><a class="verify" href="{{ c.url }}" target="_blank" rel="noopener">Verify<span class="visually-hidden"> {{ c.number }} on the IECEx register (opens in a new tab)</span> <span aria-hidden="true">↗</span></a></td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <ul class="link-cards">
+      {% for l in links %}<li><a href="{{ l[2] }}" target="_blank" rel="noopener"><strong>{{ l[0] }} <span aria-hidden="true">↗</span></strong><span>{{ l[1] }}</span><span class="visually-hidden">(opens in a new tab)</span></a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--grey" id="ex-marking" aria-labelledby="ex-marking-title">
+  <div class="wrap">
+    {{ head('ex-marking-title', 'Hazardous Areas', 'How To Read', 'An Ex Marking', 'An Ex marking tells you where equipment may be installed. Here are the markings on our certificates, part by part.') }}
+    <div class="exm-list">
+      {% for m in ex_markings %}
+      <article class="exm">
+        <header><p class="exm-code">{{ m.marking }}</p><a class="text-link" href="products/{{ m.slug }}.html">{{ m.product }}</a></header>
+        <ol>
+          {% for part in m.parts %}<li><span class="exm-part">{{ part[0] }}</span><strong>{{ part[1] }}</strong><span>{{ part[2] }}</span></li>{% endfor %}
+        </ol>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="ref-grid">
+      <div class="table-wrap">
+        <table class="cert-table cert-table--compact">
+          <caption>Zones and equipment protection levels</caption>
+          <thead><tr><th scope="col">Zone</th><th scope="col">EPL</th><th scope="col">When it applies</th></tr></thead>
+          <tbody>{% for z in zones %}<tr><th scope="row">{{ z[0] }}</th><td class="mono">{{ z[1] }}</td><td>{{ z[2] }}</td></tr>{% endfor %}</tbody>
+        </table>
+      </div>
+      <div class="tclass">
+        <h3>Temperature classes <span>(maximum surface temperature)</span></h3>
+        <dl>{% for t in tclasses %}<div><dt>{{ t[0] }}</dt><dd>{{ t[1] }}</dd></div>{% endfor %}</dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="standards" aria-labelledby="standards-title">
+  <div class="wrap">
+    {{ head('standards-title', 'Compliance', 'Standards On', 'Our Certificates') }}
+    <div class="card-grid">
+      {% for s in standards %}<div><h3 class="mono">{{ s[0] }}</h3><p>{{ s[1] }}</p><p class="used-by">{{ s[2] }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--grey" id="datasheets" aria-labelledby="datasheets-title">
+  <div class="wrap">
+    {{ head('datasheets-title', 'Documentation', 'Product', 'Datasheets', 'Datasheets with full specifications are available on request.') }}
+    <ul class="ds-list">
+      {% for p in products %}<li><a href="contact.html?type=datasheet&amp;system={{ p.slug }}"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M6 21a1.500 1.500 0 0 1-1.500-1.500v-15A1.500 1.500 0 0 1 6 3h8l5.500 5.500v11A1.500 1.500 0 0 1 18 21H6Z"/><path d="M14 3v5.500h5.500M9 13h6M9 17h6"/></svg><span>{{ p.name }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="glossary" aria-labelledby="glossary-title">
+  <div class="wrap">
+    {{ head('glossary-title', 'Reference', 'Glossary', 'Of Terms') }}
+    <dl class="gloss">
+      {% for g in glossary %}<div><dt>{{ g[0] }}</dt><dd>{{ g[1] }}</dd></div>
+      {% endfor %}
+    </dl>
+  </div>
+</section>
+{% include "cta.html" %}
+{% endblock %}

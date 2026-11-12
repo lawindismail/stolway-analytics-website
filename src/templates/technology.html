@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% from "macros.html" import pic, head with context %}
+{% block main %}
+{% include "banner.html" %}
+<nav class="page-nav" aria-label="Measurement principles">
+  <ul class="wrap">
+    {% for t in tech %}<li><a href="#{{ t.id }}">{{ t.name }}</a></li>{% endfor %}
+  </ul>
+</nav>
+<section class="section">
+  <div class="wrap">
+    <div class="intro-grid">
+      <p class="lead">Different measurements call for different physics. Our range uses six measurement principles, each matched to the gas, the range and the conditions it has to work in.</p>
+      <div class="stack">
+        <p>Most of our analysers are built on absorption spectroscopy: light passes through the sample, the target molecules absorb specific wavelengths, and the amount absorbed gives the concentration. The principles below differ in the light source, the optical path and how the signal is resolved.</p>
+        <p>Not sure which one suits your stream? <a href="contact.html?type=quote">Tell us your application</a> and we will recommend one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% for t in tech %}
+<section class="section{% if loop.index is odd %} section--grey{% endif %}" id="{{ t.id }}" aria-labelledby="{{ t.id }}-title">
+  <div class="wrap">
+    <div class="split{% if loop.index is even %} split--flip{% endif %}">
+      <a class="split-media tech-media" href="products/{{ t.p.slug }}.html">{{ pic(t.p.images[0].file, t.p.images[0].alt) }}<span>Used in the {{ t.p.short }}</span></a>
+      <div class="stack">
+        <p class="eyebrow">Principle {{ '%02d' % loop.index }} / {{ '%02d' % tech|length }}</p>
+        <h2 id="{{ t.id }}-title">{{ t.name }}</h2>
+        <p class="tech-long">{{ t.long }}</p>
+        <p>{{ t.detail }}</p>
+        <ul class="ticks">{% for x in t.points %}<li>{{ x }}</li>{% endfor %}</ul>
+        <a class="btn btn--primary btn--small" href="products/{{ t.p.slug }}.html">View the {{ t.p.short }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endfor %}
+{% include "cta.html" %}
+{% endblock %}
