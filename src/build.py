@@ -33,8 +33,9 @@ SITE = {
     "url": "https://stolwayanalytics.com",
     "name": "Stolway Analytics",
     "parent_url": "https://stolway.com/",
-    "phone": "+971 2 55 909 31",          # shown in the top bar, menu and footer
-    "email": "info.uae@stolway.com.au",   # shown in the top bar, menu and footer; enquiries go here until a form service is connected
+    "careers_url": "https://stolway.com/careers",   # Careers in the top bar goes to the main Stolway website
+    "phone": "+61 2 4262 3000",           # shown in the top bar, menu and footer
+    "email": "info@stolway.com.au",       # shown in the top bar, menu and footer; enquiries go here until a form service is connected
     "year": TODAY.year,
     "version": "",   # set in build(): a fingerprint of the CSS and JS, so browsers fetch new copies whenever either changes
     "updated": TODAY.strftime("%-d %B %Y"),
@@ -42,16 +43,17 @@ SITE = {
 }
 
 # Top navigation. Order = order on screen. The logo is the Home link, and "Request a Quote" is the button at the end.
-# "mega": the wide panel listing every product by group. "mobile_only": shown in the phone menu only.
+# "mega": the wide panel listing every product by group. "mobile_only": shown in the phone menu only. "external": a link to another website.
 NAV = [
     {"label": "Home", "href": "index.html", "mobile_only": True},
     {"label": "Products", "href": "products.html", "section": "products", "mega": True},
     {"label": "Technology", "href": "technology.html"},
     {"label": "Resources", "href": "resources.html"},
     {"label": "About Us", "href": "about.html"},
+    {"label": "Careers", "href": SITE["careers_url"], "mobile_only": True, "external": True},   # opens the Careers page on stolway.com
     {"label": "Contact Us", "href": "contact.html", "mobile_only": True},
 ]
-CERTS = ["IECEx certified equipment", "Ex p pressurised enclosures", "Ex d flameproof enclosures", "Zone 1 and Zone 2 designs", "IEC 60079 series"]
+CERTS = ["Engineered in Australia", "IECEx certified equipment", "Ex p pressurised enclosures", "Ex d flameproof enclosures", "Zone 1 and Zone 2 designs"]
 
 # Product groups, in menu order. "image" is the picture on the group tile (a name from src/images.json).
 GROUPS = [
@@ -103,7 +105,7 @@ WHY = [
     {"icon": "spectrum", "title": "Spectroscopy-based analysers", "text": "High-end liquid and gas online analysers built on spectroscopy technology."},
     {"icon": "cert", "title": "Certified for hazardous areas", "text": "IECEx certified Ex p and Ex d designs for Zone 1 and Zone 2 installations."},
     {"icon": "tailored", "title": "Tailored solutions", "text": "We diagnose your requirements first, then provide solutions tailored to them."},
-    {"icon": "global", "title": "Sales, service & manufacturing", "text": "Manufacturing, sales and service from our offices in Abu Dhabi and Wollongong."},
+    {"icon": "global", "title": "Engineered in Australia", "text": "Head office in Melbourne, with engineering and manufacturing in Australia and regional manufacturing in the Middle East."},
 ]
 # Line icons (24x24 SVG path data)
 ICONS = {
@@ -219,11 +221,16 @@ ABOUT = {
     "approach": [("Understand your needs", "We diagnose your requirements first."), ("Provide tailored solutions", "Solutions are then tailored to what you need.")],
 }
 
+# Same offices as stolway.com. Keep the two lists in step.
 OFFICES = [
-    {"role": "Sales, service & manufacturing", "geo": (24.35, 54.5), "city": "Abu Dhabi, UAE", "entity": "Stolway Manufacturing LLC",
-     "lines": ["Store B1303, Plot 29, ICAD 3", "Musaffah South, PO Box 26647", "Abu Dhabi, United Arab Emirates"], "phone": "+971 2 55 909 31", "email": "info.uae@stolway.com.au"},
-    {"role": "Sales, service & manufacturing", "geo": (-34.42, 150.89), "city": "Wollongong, NSW", "entity": "Stolway Pty Ltd",
+    {"role": "Head office, engineering & manufacturing", "geo": (-37.65, 145.03), "city": "Melbourne, VIC", "entity": "Stolway Pty Ltd, Melbourne",
+     "lines": ["71 Trafalgar Road", "Epping VIC 3076", "Australia"], "phone": "+61 414 144 684", "email": "info@stolway.com.au"},
+    {"role": "Engineering & manufacturing", "geo": (-34.42, 150.89), "city": "Wollongong, NSW", "entity": "Stolway Pty Ltd, Wollongong",
      "lines": ["W/2 91–95 Montague Street", "Wollongong NSW 2500", "Australia"], "phone": "+61 2 4262 3000", "email": "info@stolway.com.au"},
+    {"role": "Middle East manufacturing", "geo": (24.35, 54.5), "city": "Abu Dhabi, UAE", "entity": "Stolway Manufacturing Sole Proprietorship LLC",
+     "lines": ["Store B1303, Plot 29, ICAD 3", "Musaffah South, PO Box 26647", "Abu Dhabi, United Arab Emirates"], "phone": "+971 2 55 909 31", "email": "info@stolwayuae.com"},
+    {"role": "Middle East manufacturing", "geo": (26.39, 50.14), "city": "Dammam, KSA", "entity": "BR Stolway Manufacturing Co LLC",
+     "lines": ["Unit 75, Street 166", "Dammam 2nd Industrial Area, PO Box 34324", "Kingdom of Saudi Arabia"], "phone": "", "email": "info.ksa@stolway.com.au"},
 ]
 
 ORG_JSONLD = json.dumps({
@@ -232,8 +239,7 @@ ORG_JSONLD = json.dumps({
     "email": SITE["email"], "telephone": SITE["phone"],
     "description": ABOUT["summary"],
     "parentOrganization": {"@type": "Organization", "name": "Stolway", "url": "https://stolway.com/"},
-    "address": [{"@type": "PostalAddress", "streetAddress": "Store B1303, Plot 29, ICAD 3, Musaffah South", "postOfficeBoxNumber": "26647", "addressLocality": "Abu Dhabi", "addressCountry": "AE"},
-                {"@type": "PostalAddress", "streetAddress": "W/2 91-95 Montague Street", "addressLocality": "Wollongong", "addressRegion": "NSW", "postalCode": "2500", "addressCountry": "AU"}],
+    "address": {"@type": "PostalAddress", "streetAddress": "71 Trafalgar Road", "addressLocality": "Epping", "addressRegion": "VIC", "postalCode": "3076", "addressCountry": "AU"},
 }, ensure_ascii=False)
 
 # Data for the globe on the About and Contact pages: one marker per office above
@@ -265,11 +271,11 @@ PAGES = [
          h1="Certificates, Standards|& Technical References",
          intro="Everything you need to check a certificate or read an Ex marking, in one place.", crumbs=[{"label": "Resources"}]),
     page("/about.html", "about.html", "About Stolway Analytics",
-         "Stolway Analytics designs, manufactures and commercialises spectroscopy-based liquid and gas online analysers ([[analyzers]]), with offices in Abu Dhabi and Wollongong.",
+         "Stolway Analytics designs, manufactures and commercialises spectroscopy-based liquid and gas online analysers ([[analyzers]]), engineered in Australia with offices in Australia and the Middle East.",
          h1="Precision Process Analytics|Built On Spectroscopy",
-         intro="Part of the Stolway group, with sales, service and manufacturing in Abu Dhabi and Wollongong.", crumbs=[{"label": "About"}]),
+         intro="Engineered in Australia and part of the Stolway group, with head office in Melbourne.", crumbs=[{"label": "About"}]),
     page("/contact.html", "contact.html", "Contact Stolway Analytics",
-         "Contact Stolway Analytics for quotes, datasheets and technical support. Offices in Abu Dhabi and Wollongong.",
+         "Contact Stolway Analytics for quotes, datasheets and technical support. Head office in Melbourne, with offices in Wollongong, Abu Dhabi and Dammam.",
          h1="Let's Talk About|Your Application",
          intro="Tell us what you need to measure and one of our team will get back to you.", crumbs=[{"label": "Contact"}]),
     page("/privacy.html", "privacy.html", "Privacy Policy | Stolway Analytics", "How Stolway Analytics handles personal information collected through this website."),

@@ -39,7 +39,7 @@ To fill one in, edit its entry in `src/content/products.json`, set `"tbd": false
 ## Before go-live checklist
 
 1. **Connect the enquiry form.** Until then, "Send enquiry" opens the visitor's email app with the enquiry written out. To connect it, create a form at formspree.io (or similar) and rebuild with `python3 src/build.py --endpoint https://formspree.io/f/YOUR_ID`.
-2. **Confirm the contact details** in `SITE` and `OFFICES` in `src/build.py` (top-bar phone and email, the two offices).
+2. **Keep the offices in step with stolway.com.** `OFFICES` and the top-bar phone and email in `src/build.py` match the stolway.com website; change both sites together.
 3. **Have the privacy policy approved.** It is adapted from the stolway.com policy.
 4. **Point the domain at Cloudflare.** Old WordPress addresses (`/index.php/...`) redirect to the new pages through `site/_redirects`.
 

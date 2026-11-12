@@ -37,8 +37,9 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="utility-bar" aria-label="Group and contact">
   <div class="wrap utility-inner">
-    <p class="utility-group"><span class="utility-aus">Part of the Stolway group</span><a class="utility-sister" href="{{ site.parent_url }}" target="_blank" rel="noopener">Hazardous area HVAC: Stolway</a></p>
+    <p class="utility-group"><span class="utility-aus">Engineered in Australia</span><a class="utility-sister" href="{{ site.parent_url }}" target="_blank" rel="noopener">Hazardous area HVAC: Stolway</a></p>
     <ul class="utility-links">
+      <li><a href="{{ site.careers_url }}" target="_blank" rel="noopener">Careers<span class="visually-hidden"> at Stolway (opens in a new tab)</span></a></li>
       <li><a href="{{ root }}contact.html">Contact Us</a></li>
       <li class="u-keep"><a href="tel:{{ site.phone|replace(' ', '') }}">{{ site.phone }}</a></li>
       <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
@@ -60,7 +61,7 @@
         {% set active = (page.path == '/' ~ item.href) or (item.section and page.section == item.section) %}
         {% set sub = item.children or item.mega %}
         <li class="{% if sub %}has-sub{% endif %}{% if item.mega %} has-mega{% endif %}{% if item.mobile_only %} nav-mobile-only{% endif %}">
-          <a class="nav-link{% if active %} is-section{% endif %}" href="{{ root }}{{ item.href }}"{% if page.path == '/' ~ item.href %} aria-current="page"{% endif %}>{{ item.label }}{% if sub %}
+          <a class="nav-link{% if active %} is-section{% endif %}" href="{% if item.external %}{{ item.href }}{% else %}{{ root }}{{ item.href }}{% endif %}"{% if item.external %} target="_blank" rel="noopener"{% endif %}{% if page.path == '/' ~ item.href %} aria-current="page"{% endif %}>{{ item.label }}{% if sub %}
             <svg class="caret" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>{% endif %}</a>
           {% if sub %}
           <button class="sub-toggle" type="button" aria-expanded="false" aria-label="Show {{ item.label|lower }} pages"><svg class="caret" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
@@ -107,7 +108,7 @@
   <div class="wrap footer-top">
     <div class="footer-brand">
       <img src="{{ root }}assets/img/logo-white.svg" alt="Stolway Analytics" width="281" height="88" loading="lazy">
-      <p>Spectroscopy-based process analysers and sampling systems for gases and liquids, with IECEx certified designs for hazardous areas. Part of the Stolway group.</p>
+      <p>Spectroscopy-based process analysers and sampling systems for gases and liquids, with IECEx certified designs for hazardous areas. Engineered in Australia, part of the Stolway group.</p>
     </div>
     <div>
       <h2>Company</h2>
@@ -117,6 +118,7 @@
         <li><a href="{{ root }}resources.html">Resources</a></li>
         <li><a href="{{ root }}contact.html">Contact Us</a></li>
         <li><a href="{{ root }}privacy.html">Privacy Policy</a></li>
+        <li><a class="ext" href="{{ site.careers_url }}" target="_blank" rel="noopener">Careers</a></li>
         <li><a class="ext" href="{{ site.parent_url }}" target="_blank" rel="noopener">Stolway HVAC</a></li>
       </ul>
     </div>
@@ -135,8 +137,8 @@
       <ul class="footer-contact">
         <li><a href="tel:{{ site.phone|replace(' ', '') }}">{{ site.phone }}</a></li>
         <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        <li>Store B1303, Plot 29, ICAD 3<br>Musaffah South, Abu Dhabi, UAE</li>
-        <li><a href="{{ root }}contact.html#offices">All offices: UAE · Australia</a></li>
+        <li>Head office: 71 Trafalgar Road<br>Epping VIC 3076, Australia</li>
+        <li><a href="{{ root }}contact.html#offices">All offices: AU · UAE · KSA</a></li>
       </ul>
     </div>
   </div>
