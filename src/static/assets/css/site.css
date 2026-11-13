@@ -1,4 +1,6 @@
-/* Stolway — site styles
+/* Stolway and Stolway Analytics — shared site styles
+   THIS FILE IS IDENTICAL IN BOTH REPOSITORIES (stolway-website and stolway-analytics-website).
+   Change it in one, copy it to the other, rebuild both. The last block (v21) is the design language both sites follow.
    Layout: white industrial pages, centred 1200px column, full-bleed photo bands,
    thin grey rules under section headings (carried over from stolway.com). Light theme only, by design. */
 
@@ -1235,12 +1237,12 @@ a, button, summary { -webkit-tap-highlight-color: rgba(46, 54, 143, .12); }
   .pp-contact .btn { justify-content: center; }
 }
 
-/* ===== v20: Stolway Analytics =====
-   Everything above is shared with stolway.com. This block holds what is specific to the analytics site:
-   the wider logo, the product menu, the drawn spectrum backgrounds, and the product, technology and resources layouts. */
-.brand img { width: 196px; }
-@media (max-width: 1080px) { .brand img { width: 168px; } }
-.footer-brand img { width: 220px; height: auto; }
+/* ===== v20: Stolway Analytics components =====
+   Components first built for stolwayanalytics.com: the wider logo, the product menu, the drawn spectrum backgrounds,
+   and the product, technology and resources layouts. Harmless on stolway.com, which simply doesn't use them. */
+.brand--wide img { width: 196px; }
+@media (max-width: 1080px) { .brand--wide img { width: 168px; } }
+.footer-brand--wide img { width: 220px; height: auto; }
 
 /* Product menu: four groups side by side */
 @media (min-width: 1081px) {
@@ -1461,3 +1463,119 @@ section[id], article[id] { scroll-margin-top: 150px; }
 .table-wrap { max-width: 100%; }
 /* keeps screen-reader-only text inside the scrolling table, so it cannot widen the page on phones */
 .table-wrap, .cert-table td, .cert-table th { position: relative; }
+
+
+/* ===== v21: one design language for stolway.com and stolwayanalytics.com =====
+   Earlier blocks were added over time and each brought its own numbers, borders, radii and links.
+   This block settles them. The rules, in short:
+   - Two card families. MEDIA CARDS are links with a picture (systems, products, applications, groups, projects):
+     picture on a light ground, small-caps navy meta, navy title, small-caps red link, lift on hover.
+     INFO TILES are not links (services, use cases, industries, values, steps, reasons): white, 3px navy top rule,
+     a red "01" number or an icon above the title, no hover movement.
+   - Dark tiles (timeline, technologies, mission & vision, certificates): faint white panel, coral number.
+   - Corners: 12px for cards, tiles, pictures and small panels; 16px for large panels; pills for buttons and tags.
+   - Eyebrows (small caps above a heading) are red on light backgrounds and coral on dark ones.
+   - Text links are small caps with an arrow, red on light and coral on dark.
+   - Headings: section and split headings are Title Case with the last part in red (coral on dark).
+     Callouts, forms and calls to action are sentence-case questions or statements in one colour. */
+:root {
+  --r-card: 12px;
+  --r-panel: 16px;
+  --coral: #FF8D80;
+  --line-hover: #C9CDDA;
+  --shadow-hover: 0 18px 32px -26px rgba(16,22,78,.6);
+  --shadow-panel: 0 24px 44px -34px rgba(16,22,78,.6);
+}
+
+/* Eyebrows and section labels */
+.eyebrow { color: var(--red); margin: 0; }
+.section--dark .eyebrow, .cta-band .eyebrow, .custom-box .eyebrow, .mission-card .eyebrow, .mv-card .eyebrow, .aus-eyebrow { color: var(--coral); }
+.project .meta { color: var(--red); }
+
+/* Text links: one style everywhere */
+.text-link { font-family: var(--font-body); font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--red); text-decoration: none; }
+.text-link:hover { color: #A81F12; }
+.section--dark .text-link, .custom-box .text-link, .loc .text-link { color: var(--coral); }
+.section--dark .text-link:hover { color: var(--white); }
+.explore { color: var(--red); }
+
+/* Headings */
+.cta-inner h2, .custom-box h2, .partner-box h2 { font-weight: 600; letter-spacing: -0.005em; }
+.cta-inner h2 { font-size: clamp(1.5rem, 2.4vw, 1.9rem); }
+.custom-box h2 { font-size: clamp(1.35rem, 2.2vw, 1.6rem) !important; }
+.split h2, .intro-grid h2, .film-split h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); color: var(--navy); font-weight: 600; }
+.split h2 .accent, .film-split h2 .accent, .two-tone .accent { color: var(--red); }
+.section--dark .split h2, .section--dark .film-split h2 { color: var(--white); }
+.section--dark .split h2 .accent, .section--dark .film-split h2 .accent { color: var(--coral); }
+
+/* Corners and shadows */
+.split-media img, .project img, .project .figure-panel, .project-card img, .gallery-main, .thumb, .diagram, .tech-media,
+.table-wrap, .tclass, .exm, .tl-card, .tech-tile, .mv-card, .cert-cards a, .aside-card, .quick-contact a, .link-cards a, .ds-list a { border-radius: var(--r-card); }
+.feature-card, .cap, .custom-box, .partner-box, .mission-card, .why-lead, .film-frame, .loc, .tbd-box { border-radius: var(--r-panel); }
+.feature-card, .cap, .partner-box, .project { box-shadow: var(--shadow-panel); }
+@media (max-width: 860px) { .loc { border-radius: var(--r-panel); } }
+
+/* ---- Media cards ---- */
+.product-card, .mini-card, .app-card, .group-card, .project-card {
+  display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-radius: var(--r-card);
+  overflow: hidden; text-decoration: none; color: inherit;
+  transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out), border-color .3s;
+}
+.product-card:hover, .mini-card:hover, .app-card:hover, .group-card:hover, .project-card:hover { transform: translateY(-3px); border-color: var(--line-hover); box-shadow: var(--shadow-hover); color: inherit; }
+.product-card .media, .mini-card .media, .app-card .media, .group-card .media { background: var(--product); border-bottom: 1px solid var(--line); border-radius: 0; overflow: hidden; }
+.project-card img { border-radius: 0; border-bottom: 1px solid var(--line); }
+.product-card .body, .app-card .body, .group-card .body { padding: 20px 22px 22px; gap: 8px; }
+.mini-card .body { padding: 16px 18px 18px; gap: 6px; }
+.product-card h3, .app-card h3, .group-card h3, .project-card h3 { font-size: 1.2rem; color: var(--navy); font-weight: 600; line-height: 1.25; }
+.mini-card h3 { font-size: 1.05rem; color: var(--navy); font-weight: 600; }
+.product-card p, .app-card p, .group-card p { font-size: .97rem; color: var(--text); margin: 0; }
+.app-card .meta, .group-card .meta, .project-card .meta { margin: 0; font-size: .76rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--navy-btn); }
+.product-card .text-link, .explore { margin-top: auto; padding-top: 8px; font-size: .78rem; letter-spacing: .12em; }
+.project-card { gap: 0; }
+.project-card .meta { padding: 18px 22px 0; }
+.project-card h3 { padding: 6px 22px 0; }
+.project-card .explore { padding: 12px 22px 22px; }
+.project-card:hover h3 { color: var(--navy); }
+.product-card:hover .text-link::after, .project-card:hover .explore::after, .group-card:hover .explore::after { transform: translateX(3px); }
+
+/* ---- Info tiles ---- */
+.card-grid > *, .industry-list li, .step-grid li, .value-row li, .why-tile {
+  background: var(--white); border: 1px solid var(--line); border-top: 3px solid var(--navy); border-radius: var(--r-card);
+  box-shadow: none; transform: none !important;
+}
+.card-grid > *:hover, .industry-list li:hover, .step-grid li:hover, .value-row li:hover, .why-tile:hover { transform: none; box-shadow: none; border-color: var(--line); border-top-color: var(--navy); }
+.card-grid > *::after, .why-tile::before { content: none; }
+/* the number: red, small, above the title */
+.card-grid > * { padding: 24px 24px 26px; gap: 8px; }
+.card-grid > *::before {
+  position: static; width: auto; height: auto; border-radius: 0; background: none; display: block;
+  color: var(--red); font-family: var(--font-display); font-weight: 600; font-size: .85rem; letter-spacing: .06em; line-height: 1;
+}
+.industry-list li { padding: 22px 24px 24px; }
+.industry-list h3 { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.industry-list h3::before { font-family: var(--font-display); font-weight: 600; font-size: .85rem; letter-spacing: .06em; line-height: 1; color: var(--red); }
+.step-num, .value-row li span { font-family: var(--font-display); font-weight: 600; font-size: .85rem; letter-spacing: .06em; color: var(--red); line-height: 1; }
+.card-grid h3, .industry-list h3, .step-grid h3, .why-tile h3 { font-size: 1.125rem; color: var(--navy); font-weight: 600; line-height: 1.3; }
+.card-grid p, .industry-list p, .step-grid p, .why-tile p { font-size: .98rem; color: var(--text); margin: 0; }
+/* tiles with an icon instead of a number */
+.why-num { display: none; }
+.why-tile { padding: 24px 24px 26px; }
+.why-tile:hover .why-icon { background: rgba(46,54,143,.08); color: var(--navy-btn); }
+.why-icon { width: 44px; height: 44px; border-radius: 10px; margin-bottom: 14px; }
+.why-icon svg { width: 24px; height: 24px; }
+@media (max-width: 760px) { .why-grid .why-tile { border-top-width: 3px; } }
+
+/* ---- Dark tiles ---- */
+.tl-card, .tech-tile, .mv-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); }
+.tech-tile:hover { transform: none; background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.12); }
+.tech-num { position: static; order: -1; color: var(--coral); font-size: .85rem; letter-spacing: .06em; line-height: 1; }
+.tl-year { color: var(--coral); }
+
+/* ---- Panels and callouts ---- */
+.group-head { padding-left: 0; border-left: 0; }
+.group-head h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
+.tag-list li, .chip { font-variant-numeric: tabular-nums; }
+.pill--quiet { display: none; }
+/* subtitle under a technology name on light pages: navy, so it doesn't stack two red labels */
+.split .tech-long { color: var(--navy-btn); }
+.rental-intro h2 { margin-bottom: 4px; }

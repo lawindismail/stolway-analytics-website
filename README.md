@@ -18,6 +18,19 @@ The static website for stolwayanalytics.com: 21 pages of plain HTML, CSS and a l
 3. Commit to the `preview` branch and push. Cloudflare builds a private preview link.
 4. When it looks right, merge `preview` into `main`. Cloudflare publishes `main` to the live site.
 
+## Design language (shared with the other Stolway site)
+
+stolway.com and stolwayanalytics.com use one stylesheet, `src/static/assets/css/site.css`, and it is **identical in both repositories**. Change it in one, copy it to the other, and rebuild both. The same goes for `src/static/assets/js/site.js` and `globe.js`. The last block in the stylesheet (v21) sets the rules both sites follow:
+
+- **Media cards** are links with a picture (systems, products, applications, product groups, projects): the picture sits on a light grey ground, then a small-caps navy label, a navy title, a short line of text and a small-caps red link such as "Explore". They lift slightly on hover.
+- **Info tiles** are not links (services, use cases, industries, values, steps, reasons): white, with a navy rule along the top and a red "01" number or an icon above the title. They don't move on hover.
+- **Dark tiles** sit on navy sections (timeline, technologies, mission and vision, certificates): a faint white panel with a coral number.
+- **Headings:** section and split headings are Title Case with the last part in red (coral on navy), for example `Factory Testing, Installation <span class="accent">& Commissioning</span>`. Callouts, forms and calls to action are sentence-case questions or statements in one colour.
+- **Eyebrows** (small caps above a heading) are red on white and grey backgrounds, and coral on navy.
+- **Text links** are small caps with an arrow, red on light backgrounds and coral on navy.
+- **Corners:** 12px for cards, tiles and pictures; 16px for large panels; buttons and tags are pills.
+- **Page endings:** every page ends with the full-width call-to-action band (`cta.html`), with its own wording where it helps.
+
 ## Spelling
 
 The site uses "analyser". Page descriptions mention "analyzer" once so both spellings are found in search. To switch the whole site to "analyzer", change `SPELLING` at the top of `src/build.py` and rebuild.

@@ -12,7 +12,7 @@
   <div class="wrap">
     <div class="group-head">
       <p class="eyebrow">Group {{ '%02d' % loop.index }}</p>
-      <h2 id="{{ g.id }}-title">{{ g.name }}</h2>
+      {% set gt = g.title.split('|') %}<h2 id="{{ g.id }}-title" class="two-tone">{{ gt[0] }} <span class="accent">{{ gt[1] }}</span></h2>
       <p>{{ g.intro }}</p>
     </div>
     <div class="product-grid">

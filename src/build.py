@@ -57,13 +57,13 @@ CERTS = ["Engineered in Australia", "IECEx certified equipment", "Ex p pressuris
 
 # Product groups, in menu order. "image" is the picture on the group tile (a name from src/images.json).
 GROUPS = [
-    {"id": "process", "name": "Process Analysers", "image": "stll-exp",
+    {"id": "process", "name": "Process Analysers", "title": "Process|Analysers", "image": "stll-exp",
      "intro": "Laser and spectroscopy analysers for gas composition and trace measurement in process streams."},
-    {"id": "emissions", "name": "Emissions Monitoring", "image": "sss-probe",
+    {"id": "emissions", "name": "Emissions Monitoring", "title": "Emissions|Monitoring", "image": "sss-probe",
      "intro": "Continuous emission monitoring, heated stack sampling and dust monitoring for flue gas."},
-    {"id": "ambient", "name": "Ambient Air & Calibration", "image": "co-5300",
+    {"id": "ambient", "name": "Ambient Air & Calibration", "title": "Ambient Air|& Calibration", "image": "co-5300",
      "intro": "Ambient gas analysers, converters and calibration equipment."},
-    {"id": "liquid", "name": "Liquid & Level", "image": "placeholder",
+    {"id": "liquid", "name": "Liquid & Level", "title": "Liquid|& Level", "image": "placeholder",
      "intro": "Online analysers and level profiling for liquid process streams and separators."},
 ]
 
