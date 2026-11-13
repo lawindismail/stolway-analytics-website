@@ -13,6 +13,7 @@ Pages are written as about.html etc. but every link and the sitemap use clean ad
 (/about, /products/st-line-laser). Preview locally with src/preview.py.
 """
 import json, os, re, sys, datetime
+import seo
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -223,24 +224,23 @@ ABOUT = {
 
 # Same offices as stolway.com. Keep the two lists in step.
 OFFICES = [
-    {"role": "Head office, engineering & manufacturing", "geo": (-37.65, 145.03), "city": "Melbourne, VIC", "entity": "Stolway Pty Ltd, Melbourne",
+    {"role": "Head office, engineering & manufacturing", "geo": (-37.65, 145.03), "city": "Melbourne, VIC", "entity": "Stolway Pty Ltd, Melbourne", "country": "AU", "street": "71 Trafalgar Road", "locality": "Epping", "region": "VIC", "postcode": "3076",
      "lines": ["71 Trafalgar Road", "Epping VIC 3076", "Australia"], "phone": "+61 414 144 684", "email": "info@stolway.com.au"},
-    {"role": "Engineering & manufacturing", "geo": (-34.42, 150.89), "city": "Wollongong, NSW", "entity": "Stolway Pty Ltd, Wollongong",
+    {"role": "Engineering & manufacturing", "geo": (-34.42, 150.89), "city": "Wollongong, NSW", "entity": "Stolway Pty Ltd, Wollongong", "country": "AU", "street": "W/2 91-95 Montague Street", "locality": "Wollongong", "region": "NSW", "postcode": "2500",
      "lines": ["W/2 91–95 Montague Street", "Wollongong NSW 2500", "Australia"], "phone": "+61 2 4262 3000", "email": "info@stolway.com.au"},
-    {"role": "Middle East manufacturing", "geo": (24.35, 54.5), "city": "Abu Dhabi, UAE", "entity": "Stolway Manufacturing Sole Proprietorship LLC",
+    {"role": "Middle East manufacturing", "geo": (24.35, 54.5), "city": "Abu Dhabi, UAE", "entity": "Stolway Manufacturing Sole Proprietorship LLC", "country": "AE", "street": "Store B1303, Plot 29, ICAD 3, Musaffah South", "locality": "Abu Dhabi",
      "lines": ["Store B1303, Plot 29, ICAD 3", "Musaffah South, PO Box 26647", "Abu Dhabi, United Arab Emirates"], "phone": "+971 2 55 909 31", "email": "info@stolwayuae.com"},
-    {"role": "Middle East manufacturing", "geo": (26.39, 50.14), "city": "Dammam, KSA", "entity": "BR Stolway Manufacturing Co LLC",
+    {"role": "Middle East manufacturing", "geo": (26.39, 50.14), "city": "Dammam, KSA", "entity": "BR Stolway Manufacturing Co LLC", "country": "SA", "street": "Unit 75, Street 166, Dammam 2nd Industrial Area", "locality": "Dammam",
      "lines": ["Unit 75, Street 166", "Dammam 2nd Industrial Area, PO Box 34324", "Kingdom of Saudi Arabia"], "phone": "", "email": "info.ksa@stolway.com.au"},
 ]
 
-ORG_JSONLD = json.dumps({
-    "@context": "https://schema.org", "@type": "Organization", "name": "Stolway Analytics",
-    "url": SITE["url"] + "/", "logo": SITE["url"] + "/assets/img/icon-512.png",
-    "email": SITE["email"], "telephone": SITE["phone"],
-    "description": ABOUT["summary"],
-    "parentOrganization": {"@type": "Organization", "name": "Stolway", "url": "https://stolway.com/"},
-    "address": {"@type": "PostalAddress", "streetAddress": "71 Trafalgar Road", "addressLocality": "Epping", "addressRegion": "VIC", "postalCode": "3076", "addressCountry": "AU"},
-}, ensure_ascii=False)
+# Structured data for search engines (schema.org), built by src/seo.py
+ORG = seo.organization(
+    SITE["url"], "Stolway Analytics", ABOUT["summary"], "/assets/img/icon-512.png", SITE["email"], SITE["phone"], OFFICES,
+    parent=("Stolway", "https://stolway.com/"),
+    knows_about=["Process analysers", "Gas analysers", "Laser gas analysers", "TDLAS", "OF-CEAS", "NDIR", "Tunable filter spectroscopy",
+                 "Continuous emission monitoring (CEMS)", "IECEx", "Hazardous area analysers"])
+WEBSITE = seo.website(SITE["url"], "Stolway Analytics", "Spectroscopy-based process analysers and sampling systems")
 
 # Data for the globe on the About and Contact pages: one marker per office above
 GLOBE = json.dumps([{"name": o["city"], "role": o["role"], "lat": o["geo"][0], "lon": o["geo"][1]} for o in OFFICES], ensure_ascii=False)
@@ -256,7 +256,7 @@ def page(path, template, title, description, **kw):
 PAGES = [
     page("/index.html", "index.html", "Stolway Analytics | Process Analysers & Sampling Systems",
          "Spectroscopy-based online process analysers ([[analyzers]]) and sampling systems for gases and liquids, with IECEx certified designs for hazardous areas.",
-         jsonld=ORG_JSONLD),
+         ),
     page("/products.html", "products.html", "Process Analysers & Sampling Systems | Stolway Analytics",
          "Laser and spectroscopy gas analysers ([[analyzers]]), CEMS stack sampling, dust monitoring, ambient air analysers and liquid measurement from Stolway Analytics.",
          section="products", h1="Analysers & Sampling Systems|For Process, Stack & Ambient Applications",
@@ -284,6 +284,56 @@ PAGES = [
 for p in PRODUCTS:
     PAGES.append(page(f"/products/{p['slug']}.html", "product.html", f"{p['name']} | Stolway Analytics",
                       p["summary"] or f"{p['name']} from Stolway Analytics. Contact us for a datasheet.", section="products", product=p))
+
+# ---- Search results: page titles (keep under 60 characters) and descriptions (120 to 155 characters) ----
+SEO = {
+    "/index.html": ("Process Gas Analysers & Sampling Systems | Stolway Analytics",
+                    "Spectroscopy-based online process analysers (analyzers) and sampling systems for gases and liquids, with IECEx certified designs for hazardous areas."),
+    "/products.html": ("Gas Analysers, CEMS & Sampling Systems | Stolway Analytics",
+                       "Laser and spectroscopy gas analysers (analyzers), CEMS stack sampling, dust monitors, ambient air analysers and calibrators from Stolway Analytics."),
+    "/technology.html": ("TDLAS, OF-CEAS, NDIR & TFS Technology | Stolway Analytics",
+                         "How our analysers (analyzers) measure: OF-CEAS, TDLAS, tunable filter spectroscopy, NDIR, laser scattering and heated sample conditioning."),
+    "/resources.html": ("IECEx Certificates & Ex Marking Guide | Stolway Analytics",
+                        "IECEx certificates for Stolway Analytics analysers (analyzers) and sampling systems, a guide to reading Ex markings, IEC 60079 standards and a glossary."),
+    "/about.html": ("About Stolway Analytics | Spectroscopy Process Analysers",
+                    "Stolway Analytics designs and manufactures spectroscopy-based liquid and gas online analysers (analyzers). Engineered in Australia, part of the Stolway group."),
+    "/contact.html": ("Contact Stolway Analytics | Quotes, Datasheets & Support",
+                      "Contact Stolway Analytics for analyser quotes, datasheets and technical support. Head office in Melbourne, with offices in Wollongong, Abu Dhabi and Dammam."),
+    "/privacy.html": ("Privacy Policy | Stolway Analytics", "How Stolway Analytics collects, uses, stores and protects personal information sent through this website, and how to contact us about it."),
+    "/404.html": ("Page Not Found | Stolway Analytics", "The page you were looking for could not be found. Try our process analysers, measurement technology, resources or contact page."),
+    "/products/ap5-tfs.html": ("AP5-TFS Tunable Filter Gas Analyser | Stolway Analytics",
+                               "Tunable filter spectroscopy analyser for real-time hydrocarbon composition of natural gas, LNG, LPG and biogas, with BTU and Wobbe index outputs."),
+    "/products/smart-sampling-system.html": ("Smart Sampling System for CEMS | Stolway Analytics",
+                                             "Heated CEMS sampling system that stops sample-line plugging and delivers stack gas to any CEMS analyser, IECEx certified for hazardous areas."),
+    "/products/st-cems-5000c.html": ("ST CEMS-5000C Emission Monitoring System | Stolway Analytics",
+                                     "Continuous emission monitoring system covering flue gas analysis and pre-treatment, flue gas sampling and direct reading, and moisture measurement."),
+    "/products/st-dms-300.html": ("ST DMS-300 Dust Monitor | Stolway Analytics",
+                                  "Explosion-proof extractive dust monitor for low-temperature, high-humidity flue gas, suited to ultra-low emission monitoring in power plants."),
+    "/products/st-line-laser.html": ("ST Line Laser H2O, H2S & SO2 Analyser | Stolway Analytics",
+                                     "OF-CEAS line laser analysers for ppb-level H2O, H2S and SO2 in process gas, IECEx certified in Ex p and Ex d versions for hazardous areas."),
+    "/products/st-mgc-5800.html": ("ST MGC-5800 Multi Gas Calibrator | Stolway Analytics",
+                                   "Dynamic dilution calibrator using high-precision mass flow controllers to supply zero and span gas to analysers, with an optional ozone generator."),
+    "/products/st-c-nh3-5302.html": ("ST C NH3-5302 Ammonia Converter | Stolway Analytics",
+                                     "Thermal converter used with a NOx analyser to measure ammonia (NH3), oxidising NH3 to NOx over precious-metal catalysts at high temperature."),
+    "/products/level-profiler.html": ("Level Profiler for Separators | Stolway Analytics",
+                                      "A virtual window into separators and vessels: locates water, emulsion, oil, foam and gas layers without nuclear sources. Ex ia intrinsically safe."),
+}
+_SUB = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
+for pg in PAGES:
+    if pg["path"] in SEO:
+        pg["title"], pg["description"] = SEO[pg["path"]]
+    pg["title"], pg["description"] = pg["title"].translate(_SUB), pg["description"].translate(_SUB)   # people search "H2S", not "H₂S"
+    pr = pg.get("product")
+    if pr:
+        if pr["tbd"]:
+            pg["description"] = f"{pr['name']} from Stolway Analytics. Details are being finalised: contact us for a datasheet or to talk through your application."
+            pg["noindex"] = True   # no details yet: kept out of search results and the sitemap until the page has real content
+        if not pr["no_image"]:
+            pg["og_image"], pg["og_alt"], pg["og_contain"] = pr["images"][0]["file"], pr["images"][0]["alt"], True
+PAGE = {pg["path"]: pg for pg in PAGES}
+PAGE["/index.html"]["ld"] = [WEBSITE, ORG]
+PAGE["/about.html"]["ld"] = [ORG]
+PAGE["/contact.html"]["ld"] = [ORG]
 
 # Old stolwayanalytics.com (WordPress) addresses -> new pages, so existing links and search results keep working
 REDIRECTS = [
@@ -361,6 +411,15 @@ def build():
         subprocess.run([sys.executable, os.path.join(HERE, "images.py")], check=True)
     if os.path.isdir(OUT):
         shutil.rmtree(OUT)
+    images = json.load(open(os.path.join(HERE, "images.json")))
+    for pg in PAGES:   # link-preview pictures (1200 x 630 JPEG) in static/assets/og, made once per picture
+        if pg.get("og_image") and seo.og_image(pg["og_image"], os.path.join(HERE, "static", "assets", "img"), images,
+                                               os.path.join(HERE, "static", "assets", "og"), pg.get("og_contain", False)):
+            pg["og_url"] = f'{SITE["url"]}/assets/og/{pg["og_image"]}.jpg'
+        else:
+            pg["og_url"] = SITE["url"] + "/assets/img/og-image.jpg"
+        pg["robots"] = seo.robots_meta(pg)
+        pg["ld_blocks"] = [seo.ld(*pg["ld"])] if pg.get("ld") else []
     shutil.copytree(os.path.join(HERE, "static"), OUT)
     h = hashlib.md5()
     for f in ("assets/css/site.css", "assets/js/site.js", "assets/js/globe.js", "assets/js/spectrum.js"):
@@ -383,12 +442,7 @@ def build():
         os.makedirs(os.path.dirname(out), exist_ok=True)
         with open(out, "w", encoding="utf-8") as f:
             f.write(spell(clean_links(html)))
-    urls = [pg["path"] for pg in PAGES if pg["path"] != "/404.html"]
-    sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for u in urls:
-        sm.append(f"  <url><loc>{SITE['url'] + clean_url(u)}</loc><lastmod>{TODAY.isoformat()}</lastmod></url>")
-    sm.append("</urlset>")
-    open(os.path.join(OUT, "sitemap.xml"), "w").write("\n".join(sm) + "\n")
+    open(os.path.join(OUT, "sitemap.xml"), "w").write(seo.sitemap(SITE["url"], PAGES, TODAY.isoformat(), clean_url))
     open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE['url']}/sitemap.xml\n")
     open(os.path.join(OUT, "site.webmanifest"), "w").write(json.dumps({
         "name": "Stolway Analytics", "short_name": "Stolway Analytics", "start_url": "/", "display": "browser",

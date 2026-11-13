@@ -18,6 +18,17 @@ The static website for stolwayanalytics.com: 21 pages of plain HTML, CSS and a l
 3. Commit to the `preview` branch and push. Cloudflare builds a private preview link.
 4. When it looks right, merge `preview` into `main`. Cloudflare publishes `main` to the live site.
 
+## Search engines (SEO)
+
+The search set-up lives in `src/build.py` (the `SEO` table of page titles and descriptions) and in `src/seo.py`, which is **identical in both repositories** (copy it to the other one if you change it).
+
+- **Titles and descriptions:** each page's title and description sit in the `SEO` table. Keep titles under 60 characters and descriptions between 120 and 155 characters, and lead with what people search for ("explosion-proof HVAC", "gas analyser").
+- **Social previews:** every page has its own 1200 × 630 picture in `src/static/assets/og`, made automatically from the page banner or the product's first photo. Delete a file there to make it again.
+- **Structured data (schema.org):** the home, About and Contact pages describe the company and every office. The two companies point at each other as parent and sub-organisation. Pages with a product film describe the video, and every page has breadcrumbs.
+- **Robots:** content pages allow large image previews in search. The 404 page and anything marked `noindex` (for example products still marked TBD) stay out of search results and the sitemap.
+- **Sitemap:** `site/sitemap.xml` lists every indexable page with its main picture. Submit `https://<domain>/sitemap.xml` in Google Search Console and Bing Webmaster Tools once the domain is live.
+- **Redirects:** old addresses redirect permanently (301) to the new pages through `site/_redirects`. When a page moves, add the old address there in `REDIRECTS`.
+
 ## Design language (shared with the other Stolway site)
 
 stolway.com and stolwayanalytics.com use one stylesheet, `src/static/assets/css/site.css`, and it is **identical in both repositories**. Change it in one, copy it to the other, and rebuild both. The same goes for `src/static/assets/js/site.js` and `globe.js`. The last block in the stylesheet (v21) sets the rules both sites follow:
